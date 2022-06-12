@@ -7,13 +7,17 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import {MatIconModule} from '@angular/material/icon';
-import { LandingComponent } from './components/landing/landing.component'
+import { LandingComponent } from './components/landing/landing.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LandingComponent
+    LandingComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
