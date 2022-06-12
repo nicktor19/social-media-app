@@ -1,33 +1,43 @@
 mat-toolbar {
-    background-color: rgba(122, 117, 117, 0.315);
+    background-color: rgba(122, 117, 117, 0.253);
     width: 100%;
+    justify-content: space-between;
+}
+
+.logo-div {
+    display: inline-block;
+    height: 100%;
+}
+
+.logo {
+    width:100%;
+    
 }
 
 .loggedin-Nav {
     display: inline-block;
-}
-
-mat-icon {
-    color: #C13584;
+    float: right;
 }
 
 button {
     color: #0165E1;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 button:hover {
     text-transform: uppercase;
-    color: #C13584;
+    color:#FD1D1D;
 }
 
 .logo-insta {
     font-size:x-large;
-    color: #C13584;
+    color: #FD1D1D;
 }
 
 .logo-face {
     font-size:x-large;
-    color:  #0165E1;   
+    color:  white;   
     padding-right: 10px;
 }
 
