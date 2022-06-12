@@ -1,0 +1,33 @@
+mat-toolbar {
+    background-color: rgba(122, 117, 117, 0.315);
+    width: 100%;
+}
+
+.loggedin-Nav {
+    display: inline-block;
+}
+
+mat-icon {
+    color: #C13584;
+}
+
+button {
+    color: #0165E1;
+}
+
+button:hover {
+    text-transform: uppercase;
+    color: #C13584;
+}
+
+.logo-insta {
+    font-size:x-large;
+    color: #C13584;
+}
+
+.logo-face {
+    font-size:x-large;
+    color:  #0165E1;   
+    padding-right: 10px;
+}
+
