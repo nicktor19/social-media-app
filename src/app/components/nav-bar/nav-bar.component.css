@@ -1,3 +1,8 @@
+::ng-deep :root {
+    --primary-color: #3f51b5;
+    --accent-color: #ff4081;
+}
+
 mat-toolbar {
     background-color: rgba(122, 117, 117, 0.253);
     width: 100%;
@@ -20,19 +25,19 @@ mat-toolbar {
 }
 
 button {
-    color: #0165E1;
+    color: var(--primary-color);
     margin-left: 5px;
     margin-right: 5px;
 }
 
 button:hover {
     text-transform: uppercase;
-    color:#FD1D1D;
+    color:var(--accent-color);
 }
 
 .logo-insta {
     font-size:x-large;
-    color: #FD1D1D;
+    color: var(--accent-color);
 }
 
 .logo-face {
