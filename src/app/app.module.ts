@@ -12,6 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CreatePostComponent, CreatePostDialog } from './create-post/create-post.component';
+import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
+import { RegLandingComponent } from './components/reg-landing/reg-landing.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    CreatePostComponent,
+    CreatePostDialog,
+    RegisterpageComponent,
+    RegLandingComponent
   ],
   imports: [
     BrowserModule,
