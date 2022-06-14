@@ -1,65 +1,137 @@
-
-<div class="row">
-    <div class="column middle">
-      <mat-card class='mt-3 mat-typography'>
-        <mat-card-content>
-        <mat-card-title>Profile</mat-card-title>
-    
-        <p class="title"> Kylian Mbappe</p>
-
-        <img src="../../../assets/images/neymar.png" alt="image" width="100 px">
-        
-        <mat-card-subtitle>Professional Footballer</mat-card-subtitle>
-    
-    
-      <mat-list class=mat-card-content>
-        <dl>
-          <dt>Team Associated with</dt>
-          <dd>Paris Saint Germain</dd>
-          <dt>Home Address</dt>
-          <dd><Address>2150 W. 6th Ave, Suite F
-            Broomfield, Colorado 80020</Address></dd>
-          <dt>Nationality</dt>
-          <dd>French</dd>
-          <dt>Position Played</dt>
-          <dd>Striker</dd>
-        </dl>
-      </mat-list>
-    
-    
-      <button routerLink="#" mat-raised-button color="primary" type="submit" class="btn-block" style="width: 100px ;">
-        Edit Info
-      </button>
-    <br>
-        </mat-card-content>
-    </mat-card>
-  </div>
-  
-  
+<!-- <mat-icon>favorite</mat-icon> -->
+<br>
 
 
-
-  <div class="column side">
-    <mat-card class='mt-3 mat-typography' style='width : 200px'>
-      <mat-card-content>
-      <mat-card-title>Contact Me</mat-card-title>
-  
-      <div class="icon-bar">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <h5></h5>
-        <a href="https://twitter.com/neymarvx_"  mat-raised-button color="primary"><i class="fa fa-twitter" ></i></a> 
-        <br>
-        <a href="#"  mat-raised-button color="primary"><i class="fa fa-linkedin"></i></a>
-        <br>
-        <a href="#"  mat-raised-button color="primary"><i class="fa fa-facebook"></i></a>
+  <div class="container">
+    <div class="row m-b-r m-t-3">
+      <div class="col-md-2 offset-md-1">
+        <img src="../../../assets/images/neymar.png" alt="" class="img-circle img-fluid">
       </div>
+      <div class="col-md-9 p-t-2">
+        <h2 class="h2-responsive">@NeymarJr <button type="submit" routerLink="#" mat-raised-button color="primary">Follow</button> <button type="submit" routerLink="#" mat-raised-button color="primary">Edit Profile</button></h2>
+        <p>Neymar Jr</p>
 
-      </mat-card-content>
-  </mat-card>
+        <ul class="flex-menu">
+          <li><strong>9</strong> Posts</li>
+          <li><strong>58k</strong> Followers</li>
+          <li><strong>33</strong> Following</li>
+        
+        </ul>
+        <p> I love to play football! </p>
+      </div>
+    </div>
+
+    <!--  Separation between main profile and images  -->
+
+    <br> 
+
+    <!-- All pictures need to be placed in the class="row" -->
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="view overlay hm-black-light m-b-2">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(1).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <p class="white-text"><button mat-button ><mat-icon>question_answer</mat-icon></button> 32</p>
+              <p class="white-text"><button mat-button ><mat-icon>favorite</mat-icon></button> 1.2K</p>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(2).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(3).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(4).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(5).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(6).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(7).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(8).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 m-b-2">
+        <div class="view overlay hm-black-light">
+          <img src="https://mdbootstrap.com/images/regular/nature/img%20(9).jpg" class="img-fluid " alt="">
+          <div class="mask flex-center">
+            <ul class="flex-menu">
+              <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
+              <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>					
+    </div>
   </div>
-
-</div>
-
-
 
 
