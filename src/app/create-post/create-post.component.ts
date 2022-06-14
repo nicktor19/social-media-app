@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { Component, Inject, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -14,7 +15,8 @@ export class CreatePostComponent implements OnInit {
   }
   openDialog(): void {
     let dialogRef = this.dialog.open(CreatePostDialog, {
-      hasBackdrop: true
+      hasBackdrop: true,
+      width: '500px'
     });
   }
 
@@ -27,9 +29,9 @@ export class CreatePostComponent implements OnInit {
 
 })
 export class CreatePostDialog implements OnInit{
-
-  constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any){
-    
+  srcResult: any[];
+  constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _ngZone: NgZone){
+    this.srcResult = [];
   }
 
   ngOnInit(): void {
@@ -37,6 +39,19 @@ export class CreatePostDialog implements OnInit{
   }
   clickToClose(){
     this.dialogRef.close();
+  }
+  onFileSelected() {
+    const inputNode: any = document.querySelector('#file');
+  
+    if (typeof (FileReader) !== 'undefined') {
+      const reader = new FileReader();
+  
+      reader.onload = (e: any) => {
+        this.srcResult = e.target.result;
+      };
+  
+      reader.readAsArrayBuffer(inputNode.files[0]);
+    }
   }
 
 }
