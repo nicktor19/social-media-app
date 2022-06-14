@@ -10,3 +10,6 @@ body {
     background-color: rgba(226, 226, 226, 0.712);
 }
 
+.custom-dialog-container .mat-dialog-container {
+    padding: 0px;
+}
