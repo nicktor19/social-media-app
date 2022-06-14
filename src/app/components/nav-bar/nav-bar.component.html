@@ -5,12 +5,12 @@
             <span class="logo-insta">Insta</span><span class="logo-face">Face</span>
         </div>
 
-        <button mat-raised-button color="primary" routerLink=""><mat-icon color="basic">subdirectory_arrow_right</mat-icon>Login</button>
-        <button mat-raised-button color="primary" routerLink="register">Register</button>
+        <button mat-raised-button color="primary" routerLink="" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}">Login <mat-icon color="basic">login</mat-icon></button>
+        <button mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</button>
         
         <div class="loggedin-Nav">
             <button mat-raised-button color="primary" routerLink="profile">Profile</button>
-            <button mat-raised-button color="primary" routerLink="logout"><mat-icon>subdirectory_arrow_left</mat-icon>Logout</button>
+            <button mat-raised-button color="primary" routerLink="logout">Logout <mat-icon>logout</mat-icon></button>
         </div>
     </span> 
   </mat-toolbar>

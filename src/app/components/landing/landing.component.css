@@ -7,8 +7,8 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    overflow:scroll;
     overflow-y: auto;
     overflow-x: hidden;
+    min-height: 400px;
 }
 
