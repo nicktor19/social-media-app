@@ -1,0 +1,13 @@
+mat-card {
+    float: left;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.friends-mini-fab {
+    text-align: center;
+}
+mat-icon {
+    font-size: medium;
+    width:auto;
+}
