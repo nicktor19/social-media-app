@@ -30,11 +30,6 @@ button {
     margin-right: 5px;
 }
 
-button:hover {
-    text-transform: uppercase;
-    color:var(--accent-color);
-}
-
 .logo-insta {
     font-size:x-large;
     color: var(--accent-color);

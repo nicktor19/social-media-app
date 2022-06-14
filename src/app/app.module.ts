@@ -15,6 +15,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreatePostComponent, CreatePostDialog } from './create-post/create-post.component';
 import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
 import { RegLandingComponent } from './components/reg-landing/reg-landing.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegLandingComponent } from './components/reg-landing/reg-landing.compon
     CreatePostComponent,
     CreatePostDialog,
     RegisterpageComponent,
-    RegLandingComponent
+    RegLandingComponent,
+    FriendsListComponent
   ],
   imports: [
     BrowserModule,
