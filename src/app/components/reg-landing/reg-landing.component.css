@@ -1,0 +1,14 @@
+.reg-landing-container {
+    height: 50%;
+    background-position: 100%;
+    background-image: url("../../../assets/images/duy-pham-Cecb0_8Hx-o-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 400px;
+}
+
