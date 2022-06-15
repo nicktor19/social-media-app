@@ -2,6 +2,7 @@ mat-card {
     float: left;
     padding-left: auto;
     padding-right: auto;
+    width: 20%;
 }
 
 .friends-mini-fab {

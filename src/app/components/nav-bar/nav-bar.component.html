@@ -4,12 +4,16 @@
             <mat-icon>supervised_user_circle</mat-icon>
             <span class="logo-insta">Insta</span><span class="logo-face">Face</span>
         </div>
-
+        
         <button mat-raised-button color="primary" routerLink="" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}">Login <mat-icon color="basic">login</mat-icon></button>
         <button mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</button>
         
         <div class="loggedin-Nav">
-            <button mat-raised-button color="primary" routerLink="profile" routerLinkActive="mat-accent">Profile</button>
+            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent">Menu</button>
+            <mat-menu #menu="matMenu">
+              <button mat-raised-button color="primary" routerLink="#">Dashboard</button>
+              <button mat-raised-button color="primary" routerLink="profile">Profile</button>
+            </mat-menu>
             <button mat-raised-button color="primary" routerLink="logout" >Logout <mat-icon>logout</mat-icon></button>
         </div>
     </span> 

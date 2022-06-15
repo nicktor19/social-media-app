@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-friends-list',
   templateUrl: './friends-list.component.html',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsListComponent implements OnInit {
 
+  showFiller = false;
+  friends: any[]=[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

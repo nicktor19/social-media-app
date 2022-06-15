@@ -25,3 +25,6 @@ body,
   margin-right:40px;
 }
 
+mat-card {
+  width: 78%;
+}
