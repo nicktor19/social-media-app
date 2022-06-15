@@ -19,6 +19,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
+import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FeedsComponent } from './components/feeds/feeds.component';
     ProfilePageComponent,
     FriendsListComponent,
     EditProfileComponent,
-    FeedsComponent
+    FeedsComponent,
+    FriendsRequestsComponent
   ],
   imports: [
     BrowserModule,

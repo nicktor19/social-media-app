@@ -1,11 +1,11 @@
 <mat-card class="mt-0 ml-2 float-right">
     <mat-card-title color="primary"><mat-icon class="h-100" color="primary">people</mat-icon>Friends</mat-card-title>
     <mat-divider></mat-divider>
-    <mat-list *ngIf="(friends.length === 0)">
+    <mat-list class="flex-menu" *ngIf="(friends.length === 0)">
         <mat-list-item>You can meet new friends</mat-list-item>
     </mat-list>
     
-    <mat-list *ngIf="(friends.length !== 0)">
+    <mat-list class="flex-menu" *ngIf="(friends.length !== 0)">
         <mat-list-item *ngFor="let friend of friends">
             <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
                 <mat-icon>{{ friend[0][0] }}</mat-icon>
