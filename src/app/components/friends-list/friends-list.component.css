@@ -3,6 +3,7 @@ mat-card {
     padding-left: auto;
     padding-right: auto;
     width: 20%;
+    overflow:hidden;
 }
 
 .friends-mini-fab {

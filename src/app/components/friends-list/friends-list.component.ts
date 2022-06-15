@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsListComponent implements OnInit {
 
+  friends: String[] = [ "Jeffery Saelee","Nicholas Torres","Alejandro Zubillaga" ];
+  
+
   showFiller = false;
-  friends: any[]=[];
 
   constructor() { }
 
