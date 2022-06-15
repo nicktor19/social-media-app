@@ -18,3 +18,7 @@
 mat-card {
   width: 78%;
 }
+
+a {
+  text-decoration: none;
+}
