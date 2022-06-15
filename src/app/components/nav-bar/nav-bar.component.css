@@ -24,10 +24,11 @@ mat-toolbar {
     float: right;
 }
 
-button {
+a {
     color: var(--primary-color);
     margin-left: 5px;
     margin-right: 5px;
+    text-decoration: none;
 }
 
 .logo-insta {
