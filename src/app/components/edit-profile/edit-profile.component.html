@@ -1,0 +1,75 @@
+<mat-card class="container">
+	<mat-card-title class="text-center m-2">Edit profile</mat-card-title>
+	<mat-divider></mat-divider>
+	<mat-card-content>
+		<div class="d-flex flex-row justify-content-between mt-3">
+			<h1 class="d-inline">Profile Picture</h1>
+			<button mat-button color="primary">Add</button>
+		</div>
+		<div class="d-flex justify-content-center mb-3">
+			<img src="{{ imageSrc }}" alt="" style="max-height: 300px; max-width: 300px" />
+		</div>
+	</mat-card-content>
+	<mat-divider></mat-divider>
+	<mat-card-content class="mt-4">
+		<h1>Profile Information</h1>
+		<form>
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>First Name</mat-label>
+					<input matInput name="firstName" value="{{ firstName }}" disabled="editFirstName" #firstNameElement/>
+				</mat-form-field>
+				<div *ngIf="editFirstName === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(firstNameElement)" >Edit</button>
+				</div>
+				<div *ngIf="editFirstName === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(firstNameElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Last Name</mat-label>
+					<input matInput name="lastName" value="{{ lastName }}" disabled="editFirstName" #lastNameElement/>
+				</mat-form-field>
+				<div *ngIf="editFirstName === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(lastNameElement)" >Edit</button>
+				</div>
+				<div *ngIf="editFirstName === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(lastNameElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Email</mat-label>
+					<input matInput name="email" value="{{ email }}" disabled="editFirstName" #emailElement/>
+				</mat-form-field>
+				<div *ngIf="editFirstName === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(emailElement)" >Edit</button>
+				</div>
+				<div *ngIf="editFirstName === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(emailElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Password</mat-label>
+					<input matInput type='password' name="password" value="{{ password }}" disabled="editFirstName" #passwordElement/>
+				</mat-form-field>
+				<div *ngIf="editFirstName === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(passwordElement)" >Edit</button>
+				</div>
+				<div *ngIf="editFirstName === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(passwordElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+		</form>
+	</mat-card-content>
+</mat-card>
