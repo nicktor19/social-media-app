@@ -18,6 +18,7 @@ import { RegLandingComponent } from './components/reg-landing/reg-landing.compon
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     RegLandingComponent,
     ProfilePageComponent,
     FriendsListComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FriendsRequestsComponent
   ],
   imports: [
     BrowserModule,
