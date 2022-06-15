@@ -153,3 +153,82 @@
   </div>
 
  -->
+<mat-card class="mt-3">
+	<div class="row justify-content-center">
+		<div class="col-lg-3 col-sm-4 align-self-center">
+			<img src="{{ profileImg }}" alt="" class="img-fluid" />
+		</div>
+		<div class="col">
+			<mat-list class="mat-card-content">
+				<mat-card-title class="h2-responsive"
+					>{{ firstName }} {{ lastName
+					}}<button
+						type="submit"
+						class="ml-2"
+						routerLink="#"
+						mat-raised-button
+						color="primary"
+					>
+						Add Friend
+					</button>
+					<a class="ml-2" href="edit-profile" mat-raised-button color="primary"
+						>Edit Profile</a
+					></mat-card-title
+				>
+				<mat-card-subtitle>{{ description }}</mat-card-subtitle>
+				<dl>
+					<div *ngIf="occupation !== ''">
+						<dt>Occupation</dt>
+						<dd>{{ occupation }}</dd>
+					</div>
+					<div *ngIf="city !== ''">
+						<dt>City</dt>
+						<dd>{{ city }}</dd>
+					</div>
+					<div *ngIf="nationality!== ''">
+						<dt>Nationality</dt>
+						<dd>{{ nationality }}</dd>
+					</div>
+					<div *ngIf="hobbies !== ''">
+						<dt>Hobbies</dt>
+						<dd>{{ hobbies }}</dd>
+					</div>
+					<div *ngIf="!(twitter == '' && linkedin == '' && facebook == '')">
+						<dt>Contact Me</dt>
+						<dd>
+							<div class="flex-menu">
+								<link
+									rel="stylesheet"
+									href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+								/>
+								<a
+									*ngIf="twitter !== ''"
+									href="{{ twitter }}"
+									class="mr-2"
+									mat-raised-button
+									color="primary"
+									><i class="fa fa-twitter"></i
+								></a>
+								<a
+									*ngIf="linkedin !== ''"
+									href="{{ linkedin }}"
+									mat-raised-button
+									color="primary"
+									class="mr-2"
+									><i class="fa fa-linkedin"></i
+								></a>
+								<a
+									*ngIf="facebook !== ''"
+									href="{{ facebook }}"
+									mat-raised-button
+									color="primary"
+									><i class="fa fa-facebook"></i
+								></a>
+							</div>
+						</dd>
+					</div>
+				</dl>
+			</mat-list>
+		</div>
+	</div>
+</mat-card>
