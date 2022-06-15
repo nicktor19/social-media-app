@@ -19,6 +19,7 @@ import { RegLandingComponent } from './components/reg-landing/reg-landing.compon
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { FeedsComponent } from './components/feeds/feeds.component';
 import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -38,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilePageComponent,
     FriendsListComponent,
     EditProfileComponent,
+    FeedsComponent,
     FriendsRequestsComponent
   ],
   imports: [

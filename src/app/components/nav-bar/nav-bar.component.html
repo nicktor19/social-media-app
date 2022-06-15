@@ -9,12 +9,15 @@
         <a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</a>
         
         <div class="loggedin-Nav">
-            <a mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent">Menu</a>
+            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent"><mat-icon>menu</mat-icon></button>
             <mat-menu #menu="matMenu">
-              <a mat-raised-button color="primary" routerLink="#">Dashboard</a>
-              <a mat-raised-button color="primary" routerLink="profile">Profile</a>
+              <br>
+              <a color="primary" routerLink="#">Dashboard</a><br>
+              <mat-divider class="pt-2 pb-2"></mat-divider>
+              <a color="primary" routerLink="profile">Profile</a><br>
+              <mat-divider class="pt-2 pb-2"></mat-divider>
+L             <a color="primary" routerLink="logout">Logout</a>
             </mat-menu>
-            <a mat-raised-button color="primary" routerLink="logout" >Logout <mat-icon>logout</mat-icon></a>
         </div>
     </span> 
   </mat-toolbar>

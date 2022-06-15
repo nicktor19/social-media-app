@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { FeedsComponent } from './components/feeds/feeds.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,7 +16,10 @@ const routes: Routes = [
   { path: 'friends', component: FriendsListComponent },
   { path: 'friendsr', component: FriendsRequestsComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'friends', component: FriendsListComponent }
+  { path: 'friends', component: FriendsListComponent },
+  { path: 'test', component: EditProfileComponent },
+  { path: 'friends', component: FriendsListComponent },
+  { path: 'feeds', component: FeedsComponent }
 ];
 
 @NgModule({
