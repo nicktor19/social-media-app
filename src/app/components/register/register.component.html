@@ -2,26 +2,49 @@
 	<mat-card-content>
 		<mat-card-title>Register</mat-card-title>
 		<mat-card-subtitle>Please fill out your information</mat-card-subtitle>
-		<form>
+		<form #registerForm="ngForm" (ngSubmit)="onSubmitHandler()">
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>First Name</mat-label>
-				<input matInput name="firstName" required placeholder="Enter First Name" />
-				<mat-error></mat-error>
+				<input
+					#firstName
+					[(ngModel)]="userModel.firstName"
+					matInput
+					name="firstName"
+					required
+					placeholder="Enter First Name"
+				/>
+				<mat-error>First Name Required</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>Last Name</mat-label>
-				<input matInput name="lastName" required placeholder="Enter Last Name" />
-				<mat-error></mat-error>
+				<input
+					#lastName
+					[(ngModel)]="userModel.lastName"
+					matInput
+					name="lastName"
+					required
+					placeholder="Enter Last Name"
+				/>
+				<mat-error>Last Name Required</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>Email</mat-label>
-				<input matInput name="email" required placeholder="Enter Email" />
-				<mat-error></mat-error>
+				<input
+					#email
+					[(ngModel)]="userModel.email"
+					matInput
+					name="email"
+					required
+					placeholder="Enter Email"
+				/>
+				<mat-error>Email Required</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>Password</mat-label>
 				<input
 					matInput
+					#password
+					[(ngModel)]='userModel.password'
 					[type]="hidePass ? 'password' : 'text'"
 					name="password"
 					minlength="6"
@@ -37,12 +60,14 @@
 				>
 					<mat-icon>{{ hidePass ? 'visibility_off' : 'visibility' }}</mat-icon>
 				</button>
-				<mat-error></mat-error>
+				<mat-error>Password Required</mat-error>
 			</mat-form-field>
 			<button mat-raised-button color="primary" type="submit" class="btn-block">
 				Register
 			</button>
-            <mat-card-subtitle class='mt-2'><a routerLink="">Already a User? Click Here</a></mat-card-subtitle>
+			<mat-card-subtitle class="mt-2"
+				><a routerLink="">Already a User? Click Here</a></mat-card-subtitle
+			>
 		</form>
 	</mat-card-content>
 </mat-card>

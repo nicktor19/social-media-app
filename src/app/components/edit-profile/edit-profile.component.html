@@ -20,10 +20,10 @@
 					<input matInput name="firstName" value="{{ firstName }}" disabled="editFirstName" #firstNameElement/>
 				</mat-form-field>
 				<div *ngIf="editFirstName === false">
-					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(firstNameElement)" >Edit</button>
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(firstNameElement)" >Edit</button>
 				</div>
 				<div *ngIf="editFirstName === true">
-					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(firstNameElement)">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(firstNameElement)">
 						Cancel
 					</button>
 				</div>
@@ -31,13 +31,13 @@
 			<div class="d-flex flex-row justify-content-around">
 				<mat-form-field appearance="standard" class="input-fields">
 					<mat-label>Last Name</mat-label>
-					<input matInput name="lastName" value="{{ lastName }}" disabled="editFirstName" #lastNameElement/>
+					<input matInput name="lastName" value="{{ lastName }}" disabled="editLastName" #lastNameElement/>
 				</mat-form-field>
-				<div *ngIf="editFirstName === false">
-					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(lastNameElement)" >Edit</button>
+				<div *ngIf="editLastName === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(lastNameElement)" >Edit</button>
 				</div>
-				<div *ngIf="editFirstName === true">
-					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(lastNameElement)">
+				<div *ngIf="editLastName === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(lastNameElement)">
 						Cancel
 					</button>
 				</div>
@@ -45,13 +45,13 @@
 			<div class="d-flex flex-row justify-content-around">
 				<mat-form-field appearance="standard" class="input-fields">
 					<mat-label>Email</mat-label>
-					<input matInput name="email" value="{{ email }}" disabled="editFirstName" #emailElement/>
+					<input matInput name="email" value="{{ email }}" disabled="editEmail" #emailElement/>
 				</mat-form-field>
-				<div *ngIf="editFirstName === false">
-					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(emailElement)" >Edit</button>
+				<div *ngIf="editEmail === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(emailElement)" >Edit</button>
 				</div>
-				<div *ngIf="editFirstName === true">
-					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(emailElement)">
+				<div *ngIf="editEmail === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(emailElement)">
 						Cancel
 					</button>
 				</div>
@@ -59,16 +59,141 @@
 			<div class="d-flex flex-row justify-content-around">
 				<mat-form-field appearance="standard" class="input-fields">
 					<mat-label>Password</mat-label>
-					<input matInput type='password' name="password" value="{{ password }}" disabled="editFirstName" #passwordElement/>
+					<input matInput type='password' name="password" value="{{ password }}" disabled="editPassword" #passwordElement/>
 				</mat-form-field>
-				<div *ngIf="editFirstName === false">
-					<button mat-raised-button class="toggle-btn m-3" (click)="editFirstname(passwordElement)" >Edit</button>
+				<div *ngIf="editPassword === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(passwordElement)" >Edit</button>
 				</div>
-				<div *ngIf="editFirstName === true">
-					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEditFirstName(passwordElement)">
+				<div *ngIf="editPassword === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(passwordElement)">
 						Cancel
 					</button>
 				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Description</mat-label>
+					<input matInput  name="description" value="{{ description }}" disabled="editDescription" #descriptionElement/>
+				</mat-form-field>
+				<div *ngIf="editDescription === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(descriptionElement)" >Edit</button>
+				</div>
+				<div *ngIf="editDescription === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(descriptionElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label> Occupation </mat-label>
+					<input matInput  name="occupation" value="{{ occupation }}" disabled="editOccupation" #occupationElement/>
+				</mat-form-field>
+				<div *ngIf="editOccupation === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(occupationElement)" >Edit</button>
+				</div>
+				<div *ngIf="editOccupation === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(occupationElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>City</mat-label>
+					<input matInput name="city" value="{{ city }}" disabled="editCity" #cityElement/>
+				</mat-form-field>
+				<div *ngIf="editCity === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(cityElement)" >Edit</button>
+				</div>
+				<div *ngIf="editCity === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(cityElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Nationality</mat-label>
+					<input matInput name="nationality" value="{{ nationality }}" disabled="editNationality" #nationalityElement/>
+				</mat-form-field>
+				<div *ngIf="editNationality === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(nationalityElement)" >Edit</button>
+				</div>
+				<div *ngIf="editNationality === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(nationalityElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Hobbies</mat-label>
+					<input matInput name="hobbies" value="{{ hobbies }}" disabled="editHobbies" #hobbiesElement/>
+				</mat-form-field>
+				<div *ngIf="editHobbies === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(hobbiesElement)" >Edit</button>
+				</div>
+				<div *ngIf="editHobbies === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(hobbiesElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Twitter</mat-label>
+					<input matInput name="twitter" value="{{ twitter }}" disabled="editTwitter" #twitterElement/>
+				</mat-form-field>
+				<div *ngIf="editTwitter === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(twitterElement)" >Edit</button>
+				</div>
+				<div *ngIf="editTwitter === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(twitterElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>LinkedIn</mat-label>
+					<input matInput name="linkedin" value="{{ linkedin }}" disabled="editLinkedIn" #linkedinElement/>
+				</mat-form-field>
+				<div *ngIf="editLinkedIn === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(linkedinElement)" >Edit</button>
+				</div>
+				<div *ngIf="editLinkedIn === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(linkedinElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>Facebook</mat-label>
+					<input matInput name="facebook" value="{{ facebook }}" disabled="editFacebook" #facebookElement/>
+				</mat-form-field>
+				<div *ngIf="editFacebook === false">
+					<button mat-raised-button class="toggle-btn m-3" (click)="edit(facebookElement)" >Edit</button>
+				</div>
+				<div *ngIf="editFacebook === true">
+					<button mat-raised-button color="warn" class="toggle-btn m-3" (click)="cancelEdit(facebookElement)">
+						Cancel
+					</button>
+				</div>
+			</div>
+			<div class='d-flex flex-row justify-content-center'>
+				<button mat-raised-button color="primary" type="submit" class="btn-block" style='max-width: 400px;'>
+					Submit
+				</button>
 			</div>
 		</form>
 	</mat-card-content>

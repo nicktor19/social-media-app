@@ -5,16 +5,16 @@
             <span class="logo-insta">Insta</span><span class="logo-face">Face</span>
         </div>
         
-        <button mat-raised-button color="primary" routerLink="" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}">Login <mat-icon color="basic">login</mat-icon></button>
-        <button mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</button>
+        <a mat-raised-button color="primary" routerLink="" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}">Login <mat-icon color="basic">login</mat-icon></a>
+        <a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</a>
         
         <div class="loggedin-Nav">
-            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent">Menu</button>
+            <a mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent">Menu</a>
             <mat-menu #menu="matMenu">
-              <button mat-raised-button color="primary" routerLink="#">Dashboard</button>
-              <button mat-raised-button color="primary" routerLink="profile">Profile</button>
+              <a mat-raised-button color="primary" routerLink="#">Dashboard</a>
+              <a mat-raised-button color="primary" routerLink="profile">Profile</a>
             </mat-menu>
-            <button mat-raised-button color="primary" routerLink="logout" >Logout <mat-icon>logout</mat-icon></button>
+            <a mat-raised-button color="primary" routerLink="logout" >Logout <mat-icon>logout</mat-icon></a>
         </div>
     </span> 
   </mat-toolbar>

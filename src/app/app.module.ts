@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { FriendsRequestsComponent } from './components/friends-requests/friends-
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
