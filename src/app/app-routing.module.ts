@@ -12,11 +12,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterpageComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'test', component: EditProfileComponent },
-  { path: 'friends', component: FriendsListComponent },
   { path: 'friendsr', component: FriendsRequestsComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'friends', component: FriendsListComponent },
   { path: 'test', component: EditProfileComponent }, //delete
   { path: 'friends', component: FriendsListComponent }, //delete
   { path: 'feeds', component: FeedsComponent } //delete

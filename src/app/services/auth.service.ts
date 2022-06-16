@@ -20,4 +20,8 @@ export class AuthService {
   updateUser(data: any): Observable<any>{
     return this.http.post('', data)
   }
+
+  addPost(data:any): Observable<any>{
+    return this.http.post('', data)
+  }
 }

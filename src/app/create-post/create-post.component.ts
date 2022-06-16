@@ -1,6 +1,7 @@
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Component, Inject, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-create-post',
@@ -30,10 +31,11 @@ export class CreatePostComponent implements OnInit {
 
 })
 export class CreatePostDialog implements OnInit{
+  formData:FormData = new FormData();
   srcResult: any[];
   firstName: string = "Naymar"
   lastName: string = "Jr"
-  constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _ngZone: NgZone){
+  constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _ngZone: NgZone, private authService: AuthService){
     this.srcResult = [];
   }
 
@@ -43,18 +45,14 @@ export class CreatePostDialog implements OnInit{
   clickToClose(){
     this.dialogRef.close();
   }
-  onFileSelected() {
-    const inputNode: any = document.querySelector('#file');
-  
-    if (typeof (FileReader) !== 'undefined') {
-      const reader = new FileReader();
-  
-      reader.onload = (e: any) => {
-        this.srcResult = e.target.result;
-      };
-  
-      reader.readAsArrayBuffer(inputNode.files[0]);
-    }
+  onFileSelected(element:any) {
+    this.formData.append('imgPost', element.target.files[0])
+  }
+  onSubmitHandler(data: any){
+    this.formData.append('postMessage',data.message)
+    this.authService.addPost(this.formData).subscribe(response =>{
+      console.log(response);
+    })
   }
 
 }
