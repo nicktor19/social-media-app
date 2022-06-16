@@ -17,7 +17,9 @@ const routes: Routes = [
   { path: 'friendsr', component: FriendsRequestsComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'friends', component: FriendsListComponent },
-  { path: 'feeds', component: FeedsComponent }
+  { path: 'test', component: EditProfileComponent }, //delete
+  { path: 'friends', component: FriendsListComponent }, //delete
+  { path: 'feeds', component: FeedsComponent } //delete
 ];
 
 @NgModule({
