@@ -17,8 +17,6 @@ const routes: Routes = [
   { path: 'friendsr', component: FriendsRequestsComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'friends', component: FriendsListComponent },
-  { path: 'test', component: EditProfileComponent },
-  { path: 'friends', component: FriendsListComponent },
   { path: 'feeds', component: FeedsComponent }
 ];
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -6,19 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-
-  // change hardcoding remove when done
-  imageSrc: string = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg';
-  firstName: string = "Jeffrey";
-  lastName: string = "Saelee";
-  email: string = "JS123@gmail.com"
-  password: string = "123"
-  description: string = "Naymar jr"
-  occupation: string = "Professional Footballer"
-  city: string = "Paris"
-  nationality: string = "French"
-  hobbies: string = "Videogames Reading Sports"
-  twitter: string = "https://twitter.com/neymarvx_"
+  hide = true;
+  userModel = new User();
+  imageSrc: string = ""
+  firstName: string = ""
+  lastName: string = ""
+  email: string = ""
+  password: string = ""
+  description: string = ""
+  occupation: string = ""
+  city: string = ""
+  nationality: string = ""
+  hobbies: string = ""
+  twitter: string = ""
   linkedin: string = ""
   facebook: string = ""
 
@@ -34,10 +36,39 @@ export class EditProfileComponent implements OnInit {
   editTwitter = false;
   editLinkedIn = false;
   editFacebook = false;
+  srcResult: any;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.srcResult = '';
+   }
 
   ngOnInit(): void {
+    this.userModel = new User("Naymar", "Jr", "NJr@gmail.com", "123", "Naymar Jr", "Professional Footballer", "Paris", "French", "Videogames Reading Sports", "https://twitter.com/neymarvx_", "", "","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg", 123)
+    this.imageSrc = this.userModel.profilePic ?? '';
+    this.firstName =  this.userModel.firstName ?? '';
+    this.lastName = this.userModel.lastName ?? '';
+    this.email = this.userModel.email ?? '';
+    this.password = this.userModel.password ?? '';
+    this.description = this.userModel.description ?? '';
+    this.occupation = this.userModel.occupation ?? '';
+    this.city = this.userModel.city ?? '';
+    this.nationality = this.userModel.nationality ?? '';
+    this.hobbies = this.userModel.hobbies ?? '';
+    this.twitter = this.userModel.twitter ?? '';
+    this.linkedin = this.userModel.linkedin ?? '';
+    this.facebook = this.userModel.facebook ?? '';
+  }
+  onFileSelected(): void {
+    const inputNode: any = document.querySelector('#file');
+    if (typeof (FileReader) !== 'undefined') {
+      const reader = new FileReader();
+  
+      reader.onload = (e: any) => {
+        this.srcResult = e.target.result;
+      };
+  
+      reader.readAsArrayBuffer(inputNode.files[0]);
+    }
   }
 
   edit(element: any) {
@@ -53,6 +84,7 @@ export class EditProfileComponent implements OnInit {
         break;
       case "password":
         this.editPassword = true;
+        this.hide = false;
         break;
       case "description":
         this.editDescription = true;
@@ -80,49 +112,69 @@ export class EditProfileComponent implements OnInit {
         break;
     }
     element.disabled = false;
-    console.log(element.value);
   }
 
   cancelEdit(element: any) {
     element.disabled = true;
     switch (element.name) {
       case "firstName":
+        this.userModel.firstName = this.firstName;
         this.editFirstName = false;
         break;
       case "lastName":
+        this.userModel.lastName = this.lastName
         this.editLastName = false;
         break;
       case "email":
+        this.userModel.email = this.email
         this.editEmail = false;
         break;
       case "password":
+        this.userModel.password = this.password
         this.editPassword = false;
+        this.hide = true;
         break;
       case "occupation":
+        this.userModel.occupation = this.occupation
         this.editOccupation = false;
         break;
       case "description":
+        this.userModel.description = this.description
         this.editDescription = false;
         break;
       case "city":
+        this.userModel.city = this.city
         this.editCity = false;
         break;
       case "nationality":
+        this.userModel.nationality = this.nationality
         this.editNationality = false;
         break;
       case "hobbies":
+        this.userModel.hobbies = this.hobbies
         this.editHobbies = false;
         break;
       case "twitter":
+        this.userModel.twitter = this.twitter;
         this.editTwitter = false;
         break;
       case "linkedin":
+        this.userModel.linkedin = this.linkedin
         this.editLinkedIn = false;
         break;
       case "facebook":
+        this.userModel.facebook = this.facebook
         this.editFacebook = false;
         break;
     }
   }
 
+  onSubmitHandler( data: any) {
+    console.log(data);
+    this.userModel = data
+    this.authService.login(this.userModel).subscribe( response =>{
+      console.log(response);
+      
+    })
+  }
 }

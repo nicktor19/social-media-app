@@ -11,6 +11,8 @@ export class User {
         public hobbies?: string,
         public twitter?: string,
         public linkedin?: string,
-        public facebook?: string
+        public facebook?: string,
+        public profilePic?:string,
+        public userId?: number
     ){ }
 }

@@ -8,7 +8,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent implements OnInit {
-  firstName: string = "Jeffrey";
+  firstName: string = "Naymar";
+  lastName: string = "Jr";
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -30,6 +31,8 @@ export class CreatePostComponent implements OnInit {
 })
 export class CreatePostDialog implements OnInit{
   srcResult: any[];
+  firstName: string = "Naymar"
+  lastName: string = "Jr"
   constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _ngZone: NgZone){
     this.srcResult = [];
   }

@@ -1,23 +1,39 @@
-  <mat-toolbar color="primary" class='navbar'>
-    <span class="logo">
-        <div class="logo-div">
-            <mat-icon>supervised_user_circle</mat-icon>
-            <span class="logo-insta">Insta</span><span class="logo-face">Face</span>
-        </div>
-        
-        <a mat-raised-button color="primary" routerLink="" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}">Login <mat-icon color="basic">login</mat-icon></a>
-        <a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent">Register</a>
-        
-        <div class="loggedin-Nav">
-            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" routerLinkActive="mat-accent"><mat-icon>menu</mat-icon></button>
-            <mat-menu #menu="matMenu">
-              <br>
-              <a color="primary" routerLink="#">Dashboard</a><br>
-              <mat-divider class="pt-2 pb-2"></mat-divider>
-              <a color="primary" routerLink="profile">Profile</a><br>
-              <mat-divider class="pt-2 pb-2"></mat-divider>
-             <a color="primary" routerLink="logout">Logout</a>
-            </mat-menu>
-        </div>
-    </span> 
-  </mat-toolbar>
+<mat-toolbar color="primary" class="row justify-content-between">
+	<div class="col d-flex">
+		<div class='pt-1'>
+			<mat-icon>supervised_user_circle</mat-icon>
+			<span class="logo-insta">Insta</span><span class="logo-face">Face</span>
+		</div>
+
+		<a
+			class="mr-2"
+			mat-raised-button
+			color="primary"
+			routerLink=""
+			routerLinkActive="mat-accent"
+			[routerLinkActiveOptions]="{ exact: true }"
+			>Login <mat-icon color="basic">login</mat-icon></a
+		>
+		<a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent"
+			>Register</a
+		>
+	</div>
+
+	<div class="justify-content-end">
+		<button
+			class="justify-content-end"
+			mat-raised-button
+			color="primary"
+			[matMenuTriggerFor]="menu"
+		>
+			<mat-icon>menu</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+			<a mat-menu-item routerLink="#" class="px-2">Dashboard</a>
+			<mat-divider></mat-divider>
+			<a mat-menu-item routerLink="profile" class="px-2">Profile</a>
+			<mat-divider></mat-divider>
+			<a mat-menu-item routerLink="logout" class="px-2">Logout</a>
+		</mat-menu>
+	</div>
+</mat-toolbar>

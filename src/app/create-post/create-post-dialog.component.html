@@ -4,9 +4,9 @@
 <mat-divider></mat-divider>
 <div class="row d-flex align-items-center">
 	<button mat-mini-fab color="primary" class="m-2">
-		<mat-icon class="mat-typography mat-h2">JL</mat-icon>
+		<mat-icon class="mat-typography mat-h2">{{firstName.charAt(0)}}{{lastName.charAt(0)}}</mat-icon>
 	</button>
-	<h2 class="m-0">Jeffrey Saelee</h2>
+	<h2 class="m-0">{{firstName}} {{lastName}}</h2>
 </div>
 <mat-card-content>
 	<form class="form">
@@ -19,12 +19,10 @@
 				style="min-height: 100px"
 			></textarea>
 		</mat-form-field>
-		<div class='d-flex'>
-			<button mat-raised-button color="primary" type="submit" class="btn-block">
-				Post
-			</button>
+		<div class="d-flex">
+			<button mat-raised-button color="primary" type="submit" class="btn-block">Post</button>
 			<input multiple hidden (change)="onFileSelected()" #fileInput type="file" id="file" />
-			<button class='ml-1' type="button" mat-mini-fab (click)="fileInput.click()">
+			<button class="ml-1" type="button" mat-mini-fab (click)="fileInput.click()">
 				<mat-icon>add_a_photo</mat-icon>
 			</button>
 		</div>
