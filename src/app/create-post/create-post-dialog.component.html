@@ -1,4 +1,4 @@
-<form class="form" #postForm='ngForm' (ngSubmit)="onSubmitHandler(postForm.value)">
+<form class="form" #postForm="ngForm" (ngSubmit)="onSubmitHandler(postForm.value)">
 	<mat-card-header class="d-flex justify-content-center">
 		<mat-card-title>Create Post</mat-card-title>
 	</mat-card-header>
@@ -12,11 +12,15 @@
 		<h2 class="m-0">{{ firstName }} {{ lastName }}</h2>
 	</div>
 	<mat-card-content>
+		<mat-form-field appearance="standard" class="input-fields form-full-width">
+			<mat-label>Image Link</mat-label>
+			<input matInput name="postImg"/>
+		</mat-form-field>
 		<mat-form-field class="form-full-width" appearance="fill">
 			<mat-label>What's on your mind?</mat-label>
 			<textarea
 				ngModel
-				#text='ngModel'
+				#text="ngModel"
 				name="message"
 				matInput
 				cdkTextareaAutosize
@@ -25,10 +29,6 @@
 		</mat-form-field>
 		<div class="d-flex">
 			<button mat-raised-button color="primary" type="submit" class="btn-block">Post</button>
-			<input name='postPhoto' hidden (change)="onFileSelected($event)" #fileInput type="file" id="file" />
-			<button class="ml-1" type="button" mat-mini-fab (click)="fileInput.click()">
-				<mat-icon>add_a_photo</mat-icon>
-			</button>
 		</div>
 	</mat-card-content>
 </form>

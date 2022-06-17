@@ -27,8 +27,11 @@ export class CreatePostComponent implements OnInit {
 @Component({
   selector: 'create-post-dialog',
   templateUrl: './create-post-dialog.component.html',
-  styleUrls: ['./create-post.component.css']
-
+  styles: [
+    `mat-form-field {
+      width: 100%;
+    }`
+  ]
 })
 export class CreatePostDialog implements OnInit{
   formData:FormData = new FormData();
@@ -45,11 +48,9 @@ export class CreatePostDialog implements OnInit{
   clickToClose(){
     this.dialogRef.close();
   }
-  onFileSelected(element:any) {
-    this.formData.append('imgPost', element.target.files[0])
-  }
   onSubmitHandler(data: any){
     this.formData.append('postMessage',data.message)
+    this.formData.append('postImg', data.postImg)
     this.authService.addPost(this.formData).subscribe(response =>{
       console.log(response);
     })
