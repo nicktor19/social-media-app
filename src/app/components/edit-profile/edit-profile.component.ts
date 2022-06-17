@@ -1,6 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -23,6 +25,7 @@ export class EditProfileComponent implements OnInit {
   twitter: string = ""
   linkedin: string = ""
   facebook: string = ""
+  profilePic: string = ""
 
   editFirstName = false;
   editLastName = false;
@@ -36,16 +39,20 @@ export class EditProfileComponent implements OnInit {
   editTwitter = false;
   editLinkedIn = false;
   editFacebook = false;
+  editProfilePic = false;
   srcResult: any;
+  receivedImageData: any;
+  base64Data: any;
+  convertedImage: any;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private http: HttpClient) {
     this.srcResult = '';
-   }
+  }
 
   ngOnInit(): void {
-    this.userModel = new User("Naymar", "Jr", "NJr@gmail.com", "123", "Naymar Jr", "Professional Footballer", "Paris", "French", "Videogames Reading Sports", "https://twitter.com/neymarvx_", "", "","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg", 123)
+    this.userModel = new User("Naymar", "Jr", "NJr@gmail.com", "123", "Naymar Jr", "Professional Footballer", "Paris", "French", "Videogames Reading Sports", "https://twitter.com/neymarvx_", "", "", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg", 123)
     this.imageSrc = this.userModel.profilePic ?? '';
-    this.firstName =  this.userModel.firstName ?? '';
+    this.firstName = this.userModel.firstName ?? '';
     this.lastName = this.userModel.lastName ?? '';
     this.email = this.userModel.email ?? '';
     this.password = this.userModel.password ?? '';
@@ -57,18 +64,7 @@ export class EditProfileComponent implements OnInit {
     this.twitter = this.userModel.twitter ?? '';
     this.linkedin = this.userModel.linkedin ?? '';
     this.facebook = this.userModel.facebook ?? '';
-  }
-  onFileSelected(): void {
-    const inputNode: any = document.querySelector('#file');
-    if (typeof (FileReader) !== 'undefined') {
-      const reader = new FileReader();
-  
-      reader.onload = (e: any) => {
-        this.srcResult = e.target.result;
-      };
-  
-      reader.readAsArrayBuffer(inputNode.files[0]);
-    }
+    this.profilePic = this.userModel.profilePic ?? '';
   }
 
   edit(element: any) {
@@ -110,6 +106,9 @@ export class EditProfileComponent implements OnInit {
       case "facebook":
         this.editFacebook = true;
         break;
+      case "profilePic":
+        this.editProfilePic = true;
+        break;
     }
     element.disabled = false;
   }
@@ -118,7 +117,7 @@ export class EditProfileComponent implements OnInit {
     element.disabled = true;
     switch (element.name) {
       case "firstName":
-        this.userModel.firstName = this.firstName;
+        this.userModel.firstName = this.firstName
         this.editFirstName = false;
         break;
       case "lastName":
@@ -155,7 +154,7 @@ export class EditProfileComponent implements OnInit {
         this.editHobbies = false;
         break;
       case "twitter":
-        this.userModel.twitter = this.twitter;
+        this.userModel.twitter = this.twitter
         this.editTwitter = false;
         break;
       case "linkedin":
@@ -166,15 +165,19 @@ export class EditProfileComponent implements OnInit {
         this.userModel.facebook = this.facebook
         this.editFacebook = false;
         break;
+      case "profilePic":
+        this.userModel.profilePic = this.profilePic
+        this.editProfilePic = false;
+        break;
     }
   }
 
-  onSubmitHandler( data: any) {
+  onSubmitHandler(data: any) {
     console.log(data);
     this.userModel = data
-    this.authService.login(this.userModel).subscribe( response =>{
+    this.authService.login(this.userModel).subscribe(response => {
       console.log(response);
-      
+
     })
   }
 }
