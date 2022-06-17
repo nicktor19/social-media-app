@@ -27,6 +27,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +46,7 @@ import { CookieService } from 'ngx-cookie-service';
     EditProfileComponent,
     FeedsComponent,
     FriendsRequestsComponent,
-    
-   
-    
+  
   ],
   imports: [
     BrowserModule,

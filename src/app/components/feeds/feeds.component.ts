@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 export interface DialogData {
   picture: string;
+  
 }
 
  @Component({
@@ -40,6 +41,8 @@ export class PictureOnFeed {
     this.dialogRef.close();
   }
 }
+
+
 
 
 
