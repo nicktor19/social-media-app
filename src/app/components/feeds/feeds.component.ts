@@ -40,3 +40,6 @@ export class PictureOnFeed {
     this.dialogRef.close();
   }
 }
+
+
+
