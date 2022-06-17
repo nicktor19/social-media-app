@@ -1,6 +1,18 @@
 mat-tab-group {
     background-color: white;
-    width:50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.feeds-pic {
+    width: 300px;
+    height: auto;
+}
+
+
+/* popup */
+.popupImage {
+    width: 100%;
+    height: auto;
 }

@@ -1,17 +1,33 @@
-<mat-tab-group>
-    <mat-tab  color="primary" label="All Feeds">
-        <table>
-            <thead>
-                <th>Post</th>
-            </thead> 
-            <tbody>
-                <td>Hello</td>
-            </tbody>
-        
-        </table>
+<mat-tab-group class="mt-3 p-2 bg-light">
+    <!-- Global feeds -->
+    <mat-tab label="All Feeds">
+        <div class="h-100 overflow-hidden">
+            <mat-card class="mt-3 mb-3 p-3 col-lg-8 col-sm-8 overflow-hidden ml-auto mr-auto">
+                <img class="img-fluid img-responsive center-block d-block mx-auto" mat-card-image src="../../../assets/images/neymar.png" alt="Image" title="Please click picture for larger view"  (click)="openDialog('../../../assets/images/neymar.png')">
+                <mat-card-content class="">
+                    <table class="w-100">
+                        <tbody>
+                            <tr>
+                                <td><a href="#">Name</a></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">WElcome to micasfkshkdjsfkdjgfhjkdsfhsjkdfsjkdafhksjdfjkdsf fdsjk hfsdkjf hsdjkf hsdkjf hsdjk fsdkj sdjk hfskjd hfsjkd hfskdj hf</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </mat-tab>
-    <mat-tab color="primary" label="Friends Feeds" dynamicHeight>Friends posted here </mat-tab>
-    <mat-tab color="primary" label="Your Feeds" dynamicHeight>Your feeds posted here </mat-tab>
+    <!-- friend feeds -->
+    <mat-tab color="primary" label="Friends Feeds" dynamicHeight> 
+
+    </mat-tab>
+    <!-- user feeds -->
+    <mat-tab color="primary" label="Your Feeds" dynamicHeight>Your feeds posted here 
+
+    </mat-tab>
     
 </mat-tab-group>
 
