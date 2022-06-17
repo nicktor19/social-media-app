@@ -23,6 +23,9 @@ import { FeedsComponent } from './components/feeds/feeds.component';
 import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
     FriendsListComponent,
     EditProfileComponent,
     FeedsComponent,
-    FriendsRequestsComponent
+    FriendsRequestsComponent,
+    
+   
+    
   ],
   imports: [
     BrowserModule,
