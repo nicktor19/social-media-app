@@ -18,11 +18,9 @@ const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'test', component: EditProfileComponent }, //delete
-  { path: 'test', component: CreatePostComponent }, //delete
+  { path: 'test1', component: CreatePostComponent }, //delete
   { path: 'friends', component: FriendsListComponent }, //delete
-  { path: 'feeds', component: FeedsComponent }, //delete
- 
-  
+  { path: 'feeds', component: FeedsComponent }, //delete  
 ];
 
 @NgModule({

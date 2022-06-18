@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, resolveForwardRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from "@angular/router";
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -70,15 +71,49 @@ export class SessionsService {
    * @param data 
    */
   createSession(cookieName: string, data: any) {
-    this.cookieService.set(cookieName, JSON.stringify(data));
-    this.cookieService.set("loggedin", "true");
-    //this.reloadCurrentPage();
-    this.router.navigate(['/dashboard']);
-    //this.router.navigateByUrl("/dashboard"); //redirects user to profile page. change to dashboard later
+    if (cookieName === "userAccount"){
+      this.cookieService.set(cookieName, JSON.stringify(data));
+      this.cookieService.set("loggedin", "true");
+    }else {
+      this.cookieService.set(cookieName, JSON.stringify(data));
+    }
+    this.reloadCurrentPage();
+    //this.router.navigate(['/dashboard']);
+    this.router.navigateByUrl("/dashboard"); //redirects user to profile page. change to dashboard later
   }
 
+  /**
+   * sets any empty stings to null
+   */
+  userAccountNormalizer(data: User): User {
+    console.log(data);
+    (data.firstName === '' || data.firstName === null)? data.firstName = undefined : "";
+    (data.lastName === '' || data.lastName === null)? data.lastName = undefined : "";
+    (data.email === '' || data.email === null)? data.email = undefined : "";
+    (data.password === '' || data.password === null)? data.password = undefined : "";
+    (data.description === '' || data.description === null)? data.description = undefined : "";
+    (data.occupation === '' || data.occupation === null)? data.occupation = undefined : "";
+    (data.city === '' || data.city === null)? data.city = undefined : "";
+    (data.nationality === '' || data.nationality === null)? data.nationality = undefined : "";
+    (data.hobbies === '' || data.hobbies === null)? data.hobbies = undefined : "";
+    (data.twitter === '' || data.twitter === null)? data.twitter = undefined : "";
+    (data.linkedin === '' || data.linkedin === null)? data.linkedin = undefined : "";
+    (data.facebook === '' || data.facebook === null)? data.facebook = undefined : "";
+    (data.imgURL === '' || data.imgURL === null)? data.imgURL = undefined : "";
+    (data.id === null)? data.id = undefined : "";
+    return data;
+  }
+
+
   getSession(cookieName: string): any {
-    return JSON.parse(this.cookieService.get(cookieName));
+    let cookie: any;
+    if (cookieName === 'userAccount'){
+      cookie = this.userAccountNormalizer(JSON.parse(this.cookieService.get(cookieName)));
+      return cookie
+    } else {
+      cookie = JSON.parse(this.cookieService.get(cookieName))
+      return cookie;
+    }
   }
 
   /**

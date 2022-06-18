@@ -1,7 +1,7 @@
 <mat-card class="mat-card d-flex p-3 mt-2">
 	<button mat-mini-fab color="primary">
 		<mat-icon class="mat-typography mat-h2"
-			>{{ firstName.charAt(0) }}{{ lastName.charAt(0) }}</mat-icon
+			>{{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}</mat-icon
 		>
 	</button>
 	<button
@@ -11,6 +11,6 @@
 		style="width: 100%"
 		class="text-left h5 mat-button ml-2 font-italic"
 	>
-		What's on your mind, {{ firstName }}?
+		What's on your mind, {{ user.firstName }}?
 	</button>
 </mat-card>

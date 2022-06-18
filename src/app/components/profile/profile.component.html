@@ -1,13 +1,12 @@
 <mat-card class="mt-2">
 	<div class="row justify-content-center">
 		<div class="col-lg-3 align-self-center">
-			<img src="{{ profileImg }}" alt="" class="img-fluid img-responsive center-block d-block mx-auto" />
+			<img src="{{ user.profileImg }}" alt="" class="img-fluid img-responsive center-block d-block mx-auto" />
 		</div>
 		<div class="col"  style='max-width: 440px;'>
 			<mat-list class="mat-card-content center-block d-block mx-auto">
-				<mat-card-title class="h2-responsive"
-					>{{ firstName }} {{ lastName
-					}}<button
+				<mat-card-title class="h2-responsive">{{ user.firstName }} {{ user.lastName }}
+					<button
 						type="submit"
 						class="ml-2"
 						routerLink="#"
@@ -20,25 +19,25 @@
 						><mat-icon>edit</mat-icon></a
 					></mat-card-title
 				>
-				<mat-card-subtitle>{{ description }}</mat-card-subtitle>
+				<mat-card-subtitle>{{ user.description }}</mat-card-subtitle>
 				<dl>
-					<div *ngIf="occupation !== ''">
+					<div *ngIf="user.occupation !== undefined">
 						<dt>Occupation</dt>
-						<dd>{{ occupation }}</dd>
+						<dd>{{ user.occupation }}</dd>
 					</div>
-					<div *ngIf="city !== ''">
+					<div *ngIf="user.city !== undefined">
 						<dt>City</dt>
-						<dd>{{ city }}</dd>
+						<dd>{{ user.city }}</dd>
 					</div>
-					<div *ngIf="nationality !== ''">
+					<div *ngIf="user.nationality !== undefined">
 						<dt>Nationality</dt>
-						<dd>{{ nationality }}</dd>
+						<dd>{{ user.nationality }}</dd>
 					</div>
-					<div *ngIf="hobbies !== ''">
+					<div *ngIf="user.hobbies !== undefined">
 						<dt>Hobbies</dt>
-						<dd>{{ hobbies }}</dd>
+						<dd>{{ user.hobbies }}</dd>
 					</div>
-					<div *ngIf="!(twitter == '' && linkedin == '' && facebook == '')">
+					<div *ngIf="!(user.twitter == undefined && user.linkedin == undefined && user.facebook == undefined)">
 						<dt>Contact Me</dt>
 						<dd>
 							<div class="flex-menu">
@@ -47,24 +46,27 @@
 									href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 								/>
 								<a
-									*ngIf="twitter !== ''"
-									href="{{ twitter }}"
+									*ngIf="user.twitter !== undefined"
+									href = "{{ user.twitter }}"
+									target = "_blank"
 									class="mr-2"
 									mat-raised-button
 									color="primary"
 									><i class="fa fa-twitter"></i
 								></a>
 								<a
-									*ngIf="linkedin !== ''"
-									href="{{ linkedin }}"
+									*ngIf="user.linkedin !== undefined"
+									href="{{ user.linkedin}}"
+									target = "_blank"
 									mat-raised-button
 									color="primary"
 									class="mr-2"
 									><i class="fa fa-linkedin"></i
 								></a>
 								<a
-									*ngIf="facebook !== ''"
-									href="{{ facebook }}"
+									*ngIf="user.facebook !== undefined"
+									href="{{ user.facebook }}"
+									target = "_blank"
 									mat-raised-button
 									color="primary"
 									><i class="fa fa-facebook"></i
