@@ -33,10 +33,12 @@ export class RegisterComponent implements OnInit {
       && this.userModel.password !== undefined){
         this.authService.register(this.userModel).subscribe(response => {
           this.registerStatus = response;
+          console.log(this.registerStatus);
+          
         });
         
-        if (this.registerStatus)
-          this.router.navigateByUrl("");
+        if (!this.registerStatus)
+          this.router.navigate([""]);
         else {
             this.display=true;
           }

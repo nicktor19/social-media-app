@@ -82,6 +82,12 @@ export class SessionsService {
     this.router.navigateByUrl("/dashboard"); //redirects user to profile page. change to dashboard later
   }
 
+  updateSession(cookieName: string, data: any){
+    if (cookieName === "userAccount"){
+      this.cookieService.set(cookieName, JSON.stringify(data));
+    }
+    this.router.navigate(['/profile']);
+  }
   /**
    * sets any empty stings to null
    */

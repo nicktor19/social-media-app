@@ -176,8 +176,7 @@ export class EditProfileComponent implements OnInit {
   onSubmitHandler() {
     console.log(this.userModel);
     this.authService.updateUser(this.userModel).subscribe(response => {
-      this.sessionService.createSession("userAccount", this.userModel);
-      this.router.navigate(['/profile'])
+      this.sessionService.updateSession("userAccount", this.userModel);
     })
   }
 }

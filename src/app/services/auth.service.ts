@@ -22,6 +22,6 @@ export class AuthService {
   }
 
   addPost(data:any): Observable<any>{
-    return this.http.post('', data)
+    return this.http.post('http://localhost:8080/api/Posts', data)
   }
 }

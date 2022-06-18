@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { AuthService } from '../services/auth.service';
 import { SessionsService } from '../services/sessions.service';
 import { User } from '../models/user';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-create-post',
@@ -42,6 +43,7 @@ export class CreatePostComponent implements OnInit {
 export class CreatePostDialog implements OnInit{
   
   user: any = User;
+  post: Post = new Post();
 
   constructor(
     public dialogRef: MatDialogRef<CreatePostComponent>, 
@@ -55,12 +57,16 @@ export class CreatePostDialog implements OnInit{
 
   ngOnInit(): void {
     this.user = this.sessionServices.getSession("userAccount");
+    this.post = new Post(this.user.id)
   }
   clickToClose(){
     this.dialogRef.close();
   }
-  onSubmitHandler(data: any){
-    console.log(data);
+  onSubmitHandler(){
+    this.authService.addPost(this.post).subscribe(response =>{
+      console.log(response);
+      
+    })
   }
 
 }

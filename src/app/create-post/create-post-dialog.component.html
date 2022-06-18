@@ -1,25 +1,24 @@
-<form class="form" #postForm="ngForm" (ngSubmit)="onSubmitHandler(postForm.value)">
+<form class="form" #postForm="ngForm" (ngSubmit)="onSubmitHandler()">
 	<mat-card-header class="d-flex justify-content-center">
 		<mat-card-title>Create Post</mat-card-title>
 	</mat-card-header>
 	<mat-divider></mat-divider>
 	<div class="row d-flex align-items-center">
 		<button mat-mini-fab color="primary" class="m-2">
-			<mat-icon class="mat-typography mat-h2">{{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}</mat-icon>
+			<mat-icon class="mat-typography mat-h2">{{ user.firstName.charAt(0).toUpperCase() }}{{ user.lastName.charAt(0).toUpperCase() }}</mat-icon>
 		</button>
 		<h2 class="m-0">{{ user.firstName }} {{ user.lastName }}</h2>
 	</div>
 	<mat-card-content>
 		<mat-form-field appearance="standard" class="input-fields form-full-width">
 			<mat-label>Image Link</mat-label>
-			<input matInput ngModel #imgLink='ngModel' name="postImg"/>
+			<input matInput [(ngModel)]='post.imgURL' name="postImg"/>
 		</mat-form-field>
-		<mat-checkbox ngModel #privacy name='privacy'>Public</mat-checkbox>
+		<mat-checkbox [(ngModel)]='post.privacy' name='privacy'>Public</mat-checkbox>
 		<mat-form-field class="form-full-width" appearance="fill">
 			<mat-label>What's on your mind?</mat-label>
 			<textarea
-				ngModel
-				#text="ngModel"
+				[(ngModel)]='post.message'
 				name="message"
 				matInput
 				cdkTextareaAutosize
