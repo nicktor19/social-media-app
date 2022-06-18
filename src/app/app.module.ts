@@ -25,6 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +48,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FeedsComponent,
     FriendsRequestsComponent,
     DashboardComponent
+  
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,7 @@
 <mat-card class="container">
+	<mat-card-title class="text-center m-2">Edit profile</mat-card-title>
+	<mat-divider></mat-divider>
 	<form #profileEdit="ngForm" (ngSubmit)="onSubmitHandler(profileEdit.value)">
-		<mat-card-title class="text-center m-2">Edit profile</mat-card-title>
-		<mat-divider></mat-divider>
-		<mat-card-content>
-			<div class="d-flex flex-row justify-content-between mt-3">
-				<h1 class="d-inline">Profile Picture</h1>
-				<input hidden (change)="onFileSelected()" #fileInput type="file" id="file" />
-				<button mat-button color="primary" (click)="fileInput.click()">Add</button>
-			</div>
-			<div class="d-flex justify-content-center mb-3">
-				<img
-					[src]="imageSrc || userModel.profilePic"
-					style="max-height: 300px; max-width: 300px"
-				/>
-			</div>
-		</mat-card-content>
-		<mat-divider></mat-divider>
 		<mat-card-content class="mt-4">
 			<h1>Profile Information</h1>
 			<div class="d-flex flex-row justify-content-around">
@@ -378,6 +364,38 @@
 						color="warn"
 						class="toggle-btn m-3"
 						(click)="cancelEdit(facebookElement)"
+					>
+						Cancel
+					</button>
+				</div>
+			</div>
+
+			<div class="d-flex flex-row justify-content-around">
+				<mat-form-field appearance="standard" class="input-fields">
+					<mat-label>ProfileLink</mat-label>
+					<input
+						matInput
+						[(ngModel)]="userModel.profilePic"
+						name="profilePic"
+						disabled="editProfilePic"
+						#profilePicElement
+					/>
+				</mat-form-field>
+				<div *ngIf="editProfilePic === false">
+					<button
+						mat-raised-button
+						class="toggle-btn m-3"
+						(click)="edit(profilePicElement)"
+					>
+						Edit
+					</button>
+				</div>
+				<div *ngIf="editProfilePic === true">
+					<button
+						mat-raised-button
+						color="warn"
+						class="toggle-btn m-3"
+						(click)="cancelEdit(profilePicElement)"
 					>
 						Cancel
 					</button>
