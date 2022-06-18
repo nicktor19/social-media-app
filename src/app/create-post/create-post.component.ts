@@ -34,12 +34,10 @@ export class CreatePostComponent implements OnInit {
   ]
 })
 export class CreatePostDialog implements OnInit{
-  formData:FormData = new FormData();
-  srcResult: any[];
   firstName: string = "Naymar"
   lastName: string = "Jr"
   constructor(public dialogRef: MatDialogRef<CreatePostComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _ngZone: NgZone, private authService: AuthService){
-    this.srcResult = [];
+
   }
 
   ngOnInit(): void {
@@ -49,11 +47,7 @@ export class CreatePostDialog implements OnInit{
     this.dialogRef.close();
   }
   onSubmitHandler(data: any){
-    this.formData.append('postMessage',data.message)
-    this.formData.append('postImg', data.postImg)
-    this.authService.addPost(this.formData).subscribe(response =>{
-      console.log(response);
-    })
+    console.log(data);
   }
 
 }

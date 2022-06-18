@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   updateUser(data: any): Observable<any>{
-    return this.http.post('', data)
+    return this.http.put('http://localhost:8080/api/Users/update', data)
   }
 
   addPost(data:any): Observable<any>{

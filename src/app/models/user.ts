@@ -12,7 +12,7 @@ export class User {
         public twitter?: string,
         public linkedin?: string,
         public facebook?: string,
-        public profilePic?:string,
-        public userId?: number
+        public imgURL?:string,
+        public id?: number
     ){ }
 }

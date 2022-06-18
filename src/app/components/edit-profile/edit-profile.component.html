@@ -1,7 +1,7 @@
 <mat-card class="container">
 	<mat-card-title class="text-center m-2">Edit profile</mat-card-title>
 	<mat-divider></mat-divider>
-	<form #profileEdit="ngForm" (ngSubmit)="onSubmitHandler(profileEdit.value)">
+	<form #profileEdit="ngForm" (ngSubmit)="onSubmitHandler()">
 		<mat-card-content class="mt-4">
 			<h1>Profile Information</h1>
 			<div class="d-flex flex-row justify-content-around">
@@ -375,7 +375,7 @@
 					<mat-label>ProfileLink</mat-label>
 					<input
 						matInput
-						[(ngModel)]="userModel.profilePic"
+						[(ngModel)]="userModel.imgURL"
 						name="profilePic"
 						disabled="editProfilePic"
 						#profilePicElement

@@ -72,8 +72,8 @@ export class SessionsService {
   createSession(cookieName: string, data: any) {
     this.cookieService.set(cookieName, JSON.stringify(data));
     this.cookieService.set("loggedin", "true");
-    this.reloadCurrentPage();
-    this.router.navigateByUrl('/dashboard');
+    //this.reloadCurrentPage();
+    this.router.navigate(['/dashboard']);
     //this.router.navigateByUrl("/dashboard"); //redirects user to profile page. change to dashboard later
   }
 

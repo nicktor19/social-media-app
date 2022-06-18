@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { SessionsService } from './../../services/sessions.service';
@@ -12,7 +13,6 @@ import { SessionsService } from './../../services/sessions.service';
 export class EditProfileComponent implements OnInit {
   hide = true;
   userModel = new User();
-  imageSrc: string = ""
   firstName: string = ""
   lastName: string = ""
   email: string = ""
@@ -40,24 +40,19 @@ export class EditProfileComponent implements OnInit {
   editLinkedIn = false;
   editFacebook = false;
   editProfilePic = false;
-  srcResult: any;
-  receivedImageData: any;
-  base64Data: any;
-  convertedImage: any;
 
   constructor(
     private authService: AuthService,
     private sessionService: SessionsService,
-    private http: HttpClient
+    private router: Router
     ) {
-    this.srcResult = '';
   }
 
   ngOnInit(): void {
     this.sessionService.loggedOutDirector()//check if logged in
+    let user = this.sessionService.getSession('userAccount')
+    this.userModel = new User(user.firstName, user.lastName, user.email, user.password, user.description, user.occupation, user.city, user.nationality, user.hobbies, user.twitter,user.linkedin,user.facebook,user.imgURL,user.id)
 
-    this.userModel = new User("Naymar", "Jr", "NJr@gmail.com", "123", "Naymar Jr", "Professional Footballer", "Paris", "French", "Videogames Reading Sports", "https://twitter.com/neymarvx_", "", "","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg", 123)
-    this.imageSrc = this.userModel.profilePic ?? '';
     this.firstName = this.userModel.firstName ?? '';
     this.lastName = this.userModel.lastName ?? '';
     this.email = this.userModel.email ?? '';
@@ -70,7 +65,7 @@ export class EditProfileComponent implements OnInit {
     this.twitter = this.userModel.twitter ?? '';
     this.linkedin = this.userModel.linkedin ?? '';
     this.facebook = this.userModel.facebook ?? '';
-    this.profilePic = this.userModel.profilePic ?? '';
+    this.profilePic = this.userModel.imgURL ?? '';
   }
 
   edit(element: any) {
@@ -172,17 +167,17 @@ export class EditProfileComponent implements OnInit {
         this.editFacebook = false;
         break;
       case "profilePic":
-        this.userModel.profilePic = this.profilePic
+        this.userModel.imgURL = this.profilePic
         this.editProfilePic = false;
         break;
     }
   }
 
-  onSubmitHandler(data: any) {
-    console.log(data);
-    this.userModel = data
-    this.authService.login(this.userModel).subscribe(response => {
-      console.log(response);
+  onSubmitHandler() {
+    console.log(this.userModel);
+    this.authService.updateUser(this.userModel).subscribe(response => {
+      this.sessionService.createSession("userAccount", this.userModel);
+      this.router.navigate(['/profile'])
     })
   }
 }

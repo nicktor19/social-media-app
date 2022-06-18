@@ -1,8 +1,4 @@
 mat-card {
-    float: left;
-    padding-left: auto;
-    padding-right: auto;
-    width: 20%;
     overflow:hidden;
 }
 
@@ -11,5 +7,4 @@ mat-card {
 }
 mat-icon {
     font-size: medium;
-    width:auto;
 }

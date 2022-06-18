@@ -14,8 +14,9 @@
 	<mat-card-content>
 		<mat-form-field appearance="standard" class="input-fields form-full-width">
 			<mat-label>Image Link</mat-label>
-			<input matInput name="postImg"/>
+			<input matInput ngModel #imgLink='ngModel' name="postImg"/>
 		</mat-form-field>
+		<mat-checkbox ngModel #privacy name='privacy'>Public</mat-checkbox>
 		<mat-form-field class="form-full-width" appearance="fill">
 			<mat-label>What's on your mind?</mat-label>
 			<textarea
