@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionsService } from "src/app/services/sessions.service"
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  checkSession: boolean = false;
+
+  constructor(
+    private cookieService: SessionsService
+  ) { }
 
   ngOnInit(): void {
+    this.cookieService.sessionActive(); //checking if user is logged in
   }
 
 }

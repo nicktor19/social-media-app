@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionsService } from './../../services/sessions.service'
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +19,12 @@ export class ProfileComponent implements OnInit {
   linkedin:string = ""
   facebook: string = ""
 
-  constructor() { }
+  constructor(
+    private cookieService: SessionsService
+  ) { }
 
   ngOnInit(): void {
+    this.cookieService.loggedOutDirector(); //checking if user is logged in
   }
 
 }

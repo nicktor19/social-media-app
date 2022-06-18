@@ -23,6 +23,7 @@ import { FeedsComponent } from './components/feeds/feeds.component';
 import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CookieService } from 'ngx-cookie-service';
     FriendsListComponent,
     EditProfileComponent,
     FeedsComponent,
-    FriendsRequestsComponent
+    FriendsRequestsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -11,9 +11,8 @@
 					#email="ngModel"
 					name="email"
 					required
-					placeholder="Enter Email"
-				/>
-				<mat-error></mat-error>
+					placeholder="Enter Email">
+				<mat-error [class.d-none]="email.untouched || email.valid">This is a required field</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="standard" class="input-fields" hideRequiredMarker>
 				<mat-label>Password</mat-label>
@@ -36,7 +35,7 @@
 				>
 					<mat-icon>{{ hidePass ? 'visibility_off' : 'visibility' }}</mat-icon>
 				</button>
-				<mat-error></mat-error>
+				<mat-error>This is a required field</mat-error>
 			</mat-form-field>
 			<button mat-raised-button color="primary" type="submit" class="btn-block">
 				Login

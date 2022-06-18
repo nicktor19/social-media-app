@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { SessionsService } from './../../services/sessions.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -38,11 +39,16 @@ export class EditProfileComponent implements OnInit {
   editFacebook = false;
   srcResult: any;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private sessionService: SessionsService
+    ) {
     this.srcResult = '';
    }
 
   ngOnInit(): void {
+    this.sessionService.loggedOutDirector()//check if logged in
+
     this.userModel = new User("Naymar", "Jr", "NJr@gmail.com", "123", "Naymar Jr", "Professional Footballer", "Paris", "French", "Videogames Reading Sports", "https://twitter.com/neymarvx_", "", "","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Neymar_PSG.jpg/400px-Neymar_PSG.jpg", 123)
     this.imageSrc = this.userModel.profilePic ?? '';
     this.firstName =  this.userModel.firstName ?? '';
@@ -174,7 +180,6 @@ export class EditProfileComponent implements OnInit {
     this.userModel = data
     this.authService.login(this.userModel).subscribe( response =>{
       console.log(response);
-      
     })
   }
 }

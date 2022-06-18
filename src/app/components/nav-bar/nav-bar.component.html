@@ -12,14 +12,15 @@
 			routerLink=""
 			routerLinkActive="mat-accent"
 			[routerLinkActiveOptions]="{ exact: true }"
+			*ngIf="!logger"
 			>Login <mat-icon color="basic">login</mat-icon></a
 		>
-		<a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent"
+		<a mat-raised-button color="primary" routerLink="register" routerLinkActive="mat-accent" *ngIf="!logger"
 			>Register</a
 		>
 	</div>
 
-	<div class="justify-content-end">
+	<div class="justify-content-end" *ngIf="logger">
 		<button
 			class="justify-content-end"
 			mat-raised-button
@@ -29,11 +30,11 @@
 			<mat-icon>menu</mat-icon>
 		</button>
 		<mat-menu #menu="matMenu">
-			<a mat-menu-item routerLink="#" class="px-2">Dashboard</a>
+			<a mat-menu-item routerLink="dashboard" class="px-2">Dashboard</a>
 			<mat-divider></mat-divider>
 			<a mat-menu-item routerLink="profile" class="px-2">Profile</a>
 			<mat-divider></mat-divider>
-			<a mat-menu-item routerLink="logout" class="px-2">Logout</a>
+			<a mat-menu-item (click)="onClickLogout()" class="px-2">Logout</a>
 		</mat-menu>
 	</div>
 </mat-toolbar>
