@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { SessionsService } from 'src/app/services/sessions.service';
@@ -26,24 +26,21 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitHandler(){
-    console.log(this.userModel);
+
      if (this.userModel.firstName !== undefined
-      && this.userModel.lastName !== undefined 
-      && this.userModel.email !== undefined 
-      && this.userModel.password !== undefined){
+      || this.userModel.lastName !== undefined 
+      || this.userModel.email !== undefined 
+      || this.userModel.password !== undefined){
         this.authService.register(this.userModel).subscribe(response => {
           this.registerStatus = response;
-          console.log(this.registerStatus);
-          
-        });
-        
-        if (!this.registerStatus)
-          this.router.navigate([""]);
-        else {
-            this.display=true;
+          if (response){
+            console.log(this.registerStatus);
+            this.router.navigateByUrl("");
           }
-      }else {
-        this.display=true;
+          else {
+              this.display=true;
+            }
+        });
       }
   }
 }
