@@ -5,7 +5,7 @@ export class Post {
         public imgURL?: string,
         public privacy?: boolean,
         public createDate?: string,
-        public id?: number,
+        public id?: number
     ){
 
     }

@@ -40,6 +40,7 @@
 			<button mat-raised-button color="primary" type="submit" class="btn-block">
 				Login
 			</button>
+			<mat-error *ngIf="display">Please check your email and password and try again.</mat-error>
 			<mat-card-subtitle class="mt-2"
 				><a routerLink="/register">New User? Click Here</a></mat-card-subtitle
 			>

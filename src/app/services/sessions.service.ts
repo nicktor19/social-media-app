@@ -92,7 +92,7 @@ export class SessionsService {
    * sets any empty stings to null
    */
   userAccountNormalizer(data: User): User {
-    console.log(data);
+    //console.log(data);
     (data.firstName === '' || data.firstName === null)? data.firstName = undefined : "";
     (data.lastName === '' || data.lastName === null)? data.lastName = undefined : "";
     (data.email === '' || data.email === null)? data.email = undefined : "";
@@ -110,7 +110,11 @@ export class SessionsService {
     return data;
   }
 
-
+  /**
+   * if you check userAccount store the cookie into a User
+   * @param cookieName
+   * @returns 
+   */
   getSession(cookieName: string): any {
     let cookie: any;
     if (cookieName === 'userAccount'){

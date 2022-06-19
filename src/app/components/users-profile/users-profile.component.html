@@ -6,25 +6,23 @@
 		<div class="col"  style='max-width: 440px;'>
 			<mat-list class="mat-card-content center-block d-block mx-auto">
 				<mat-card-title class="h2-responsive">{{ user.firstName }} {{ user.lastName }}
-					<a class="ml-2" href="edit-profile" mat-raised-button color="primary"
-						><mat-icon>edit</mat-icon></a
-					></mat-card-title
-				>
+					<app-add-friend-button></app-add-friend-button>
+                </mat-card-title>
 				<mat-card-subtitle>{{ user.description }}</mat-card-subtitle>
 				<dl>
-					<div *ngIf="user.occupation !== undefined">
+					<div *ngIf="user.occupation !== null">
 						<dt>Occupation</dt>
 						<dd>{{ user.occupation }}</dd>
 					</div>
-					<div *ngIf="user.city !== undefined">
+					<div *ngIf="user.city !== null">
 						<dt>City</dt>
 						<dd>{{ user.city }}</dd>
 					</div>
-					<div *ngIf="user.nationality !== undefined">
+					<div *ngIf="user.nationality !== null">
 						<dt>Nationality</dt>
 						<dd>{{ user.nationality }}</dd>
 					</div>
-					<div *ngIf="user.hobbies !== undefined">
+					<div *ngIf="user.hobbies !== null">
 						<dt>Hobbies</dt>
 						<dd>{{ user.hobbies }}</dd>
 					</div>
@@ -37,7 +35,7 @@
 									href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 								/>
 								<a
-									*ngIf="user.twitter !== undefined"
+									*ngIf="user.twitter !== null"
 									href = "{{ user.twitter }}"
 									target = "_blank"
 									class="mr-2"
@@ -46,7 +44,7 @@
 									><i class="fa fa-twitter"></i
 								></a>
 								<a
-									*ngIf="user.linkedin !== undefined"
+									*ngIf="user.linkedin !== null"
 									href="{{ user.linkedin}}"
 									target = "_blank"
 									mat-raised-button
@@ -55,7 +53,7 @@
 									><i class="fa fa-linkedin"></i
 								></a>
 								<a
-									*ngIf="user.facebook !== undefined"
+									*ngIf="user.facebook !== null"
 									href="{{ user.facebook }}"
 									target = "_blank"
 									mat-raised-button
@@ -70,3 +68,4 @@
 		</div>
 	</div>
 </mat-card>
+

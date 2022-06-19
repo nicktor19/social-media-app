@@ -12,25 +12,28 @@ import { SessionsService } from 'src/app/services/sessions.service';
 export class LoginComponent implements OnInit {
   hidePass = true;
   user: User = new User();
+  display = false;
 
   constructor(
     private authService: AuthService,
     private cookieSession: SessionsService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
   }
 
-  
+
   //login function
-  onSubmitHandler(data: any){
+  onSubmitHandler(data: any) {
     this.user = data;
-    this.authService.login(this.user).subscribe( response=>{
-      console.log(response)
+    this.authService.login(this.user).subscribe(response => {
+      //console.log(response)
       if (response !== null) {
         this.cookieSession.createSession("userAccount", response)
         this.user = this.cookieSession.getSession("userAccount");
         console.log(this.user.email);
+      } else {
+        this.display = true;
       }
     })
   }
