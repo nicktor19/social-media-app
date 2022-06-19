@@ -5,17 +5,18 @@
         <mat-card class="example-card mt-2" *ngFor="let item of allFeedItems">
             <mat-card-header>
                 <mat-card-title>
-                <button mat-mini-fab color="primary">
+                <a routerLink="{{'/profile/'+item.userId}}" mat-mini-fab color="primary">
                     <mat-icon class="mat-typography mat-h2"
                         >{{ item.firstName.charAt(0).toUpperCase()  }}{{ item.lastName.charAt(0).toUpperCase()}}</mat-icon
                     >
-                </button> {{ item.firstName  }} {{ item.lastName }}</mat-card-title>
+                </a> {{ item.firstName  }} {{ item.lastName }}</mat-card-title>
             </mat-card-header>
             <mat-divider></mat-divider>
             <div class="align-self-center">
                 <img
                     src="{{ item.imgURL }}"
                     class="img-fluid img-responsive center-block d-block mx-auto"
+                    (click)="openDialog(item.imgURL)"
                 />
             </div>
             <mat-divider></mat-divider>
@@ -55,17 +56,18 @@
         <mat-card class="example-card mt-2" *ngFor="let item of yourFeedItems">
             <mat-card-header>
                 <mat-card-title>
-                <button mat-mini-fab color="primary">
+                <a routerLink="/profile" mat-mini-fab color="primary">
                     <mat-icon class="mat-typography mat-h2"
                         >{{ item.firstName.charAt(0).toUpperCase() }}{{ item.lastName.charAt(0).toUpperCase() }}</mat-icon
                     >
-                </button> {{ item.firstName }} {{ item.lastName }}</mat-card-title>
+                </a> {{ item.firstName }} {{ item.lastName }}</mat-card-title>
             </mat-card-header>
             <mat-divider></mat-divider>
             <div class="align-self-center">
                 <img
                     src="{{ item.imgURL }}"
                     class="img-fluid img-responsive center-block d-block mx-auto"
+                    (click)="openDialog(item.imgURL)"
                 />
             </div>
             <mat-divider></mat-divider>

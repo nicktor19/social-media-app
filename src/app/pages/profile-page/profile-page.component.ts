@@ -23,7 +23,8 @@ export class ProfilePageComponent implements OnInit {
           firstName: user.firstName,
           lastName: user.lastName,
           imgURL: item.imgURL,
-          message: item.message
+          message: item.message,
+          userId: user.userId
         }
       }).reverse()
     });

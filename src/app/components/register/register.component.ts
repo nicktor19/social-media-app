@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
         this.authService.register(this.userModel).subscribe(response => {
           this.registerStatus = response;
           if (response){
-            console.log(this.registerStatus);
             this.router.navigateByUrl("");
           }
           else {

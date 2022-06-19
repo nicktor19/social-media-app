@@ -17,7 +17,7 @@ export class AddFriendButtonComponent implements OnInit {
   user: any = User;
   friend: Friend = new Friend();
   userId: any;
-  
+
 
   constructor(
     private sessionService: SessionsService,
@@ -25,13 +25,25 @@ export class AddFriendButtonComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
-   }
+  }
 
   ngOnInit(): void {
     this.user = this.sessionService.getSession('userAccount');
-    this.friend.requester = parseInt(this.user.id);
+    this.friend.requester = this.user.id;
     this.friend.decider = parseInt(this.userId);
-    this.checkIfFriendshipStatus();
+    console.log(this.friend);
+
+    this.aurthSerivce.checkFriendRecord(this.friend).subscribe({
+      next: (response) => {
+        console.log(response);
+        console.log("good?")
+      },
+      error: (err:any) =>{
+        console.log(err);
+        
+      }
+
+    });
   }
 
   OnclickAddFriend() {
@@ -44,16 +56,16 @@ export class AddFriendButtonComponent implements OnInit {
     });
   }
 
-  checkIfFriendshipStatus(){
+  checkIfFriendshipStatus() {
     // get the row if it exist.
     console.log(this.friend);
     this.aurthSerivce.checkFriendRecord(this.friend).subscribe(response => {
       console.log(response);
       console.log("good?")
-      
+
     });
 
   }
 
-  
+
 }

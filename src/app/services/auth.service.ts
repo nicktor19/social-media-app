@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Friend } from '../models/friends';
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   checkFriendRecord(checkFriend: any): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/api/friends/getrecord', checkFriend)
+    return this.http.put<any>('http://localhost:8080/api/friends/getrecord', checkFriend)
   }
 
 
