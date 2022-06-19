@@ -37,7 +37,7 @@ export class FeedsComponent implements OnInit {
       }).reverse()
     });
 
-    this.dataService.getAllPost().subscribe(res => {
+    this.dataService.getAllPublicPost().subscribe(res => {
       res.forEach((item: any) => {
         if (item.userId != user.id) {
           this.dataService.getUserById(item.userId).subscribe({
@@ -46,7 +46,8 @@ export class FeedsComponent implements OnInit {
                 firstName: res2.firstName,
                 lastName: res2.lastName,
                 imgURL: item.imgURL,
-                message: item.message
+                message: item.message,
+                userId: res2.id
               })},
             complete: () => {
               this.allFeedItems.reverse();

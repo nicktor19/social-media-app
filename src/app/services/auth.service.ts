@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Friend } from '../models/friends';
@@ -38,8 +38,8 @@ export class AuthService {
     return this.http.post('http://localhost:8080/api/friends/add', newFriend)
   }
 
-  checkFriendRecord(data: any): Observable<any>{
-    return this.http.post<any>('http://localhost:8080/api/friends/getrecord', data)
+  checkFriendRecord(checkFriend: any): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/api/friends/getrecord', checkFriend)
   }  
   
   pendingFriends(data: any): Observable<any>{

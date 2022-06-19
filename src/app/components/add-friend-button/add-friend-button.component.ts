@@ -17,7 +17,7 @@ export class AddFriendButtonComponent implements OnInit {
   user: any = User;
   friend: Friend = new Friend();
   userId: any;
-  
+
 
   constructor(
     private sessionService: SessionsService,
@@ -45,7 +45,7 @@ export class AddFriendButtonComponent implements OnInit {
     });
   }
 
-  checkIfFriendshipStatus(){
+  checkIfFriendshipStatus() {
     // get the row if it exist.
     this.user = this.sessionService.getSession('userAccount');
     this.friend.requester = parseInt(this.user.id);
@@ -54,5 +54,5 @@ export class AddFriendButtonComponent implements OnInit {
     this.aurthSerivce.checkFriendRecord(this.friend).subscribe(data => {
       console.log(data);
     });
-  }  
+  }
 }
