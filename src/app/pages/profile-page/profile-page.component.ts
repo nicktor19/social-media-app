@@ -15,6 +15,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private dataService: DataService, private sessionService: SessionsService) { }
 
   ngOnInit(): void {
+    this.sessionService.loggedOutDirector(); //if you aren't logged in
     let user = this.sessionService.getSession("userAccount")
     
     this.dataService.getPostById(user.id).subscribe( response =>{

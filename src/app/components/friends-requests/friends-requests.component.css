@@ -2,7 +2,6 @@
     text-align: center;
 }
 mat-icon {
-    font-size: medium;
     width:auto;
 }
 
@@ -11,4 +10,11 @@ mat-icon {
     border-radius: 20%;
 }
   
-  
+.mat-icon1{
+    color:green;
+}
+
+.mat-icon2{
+    
+    color:red;
+}

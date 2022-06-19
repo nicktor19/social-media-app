@@ -25,17 +25,18 @@ export class AddFriendButtonComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
+    
    }
 
   ngOnInit(): void {
-    this.user = this.sessionService.getSession('userAccount');
-    this.friend.requester = parseInt(this.user.id);
-    this.friend.decider = parseInt(this.userId);
     this.checkIfFriendshipStatus();
   }
 
   OnclickAddFriend() {
     //need to add checker if friend is astablished or pending.
+    this.user = this.sessionService.getSession('userAccount');
+    this.friend.requester = parseInt(this.user.id);
+    this.friend.decider = parseInt(this.userId);
     console.log(this.user);
     this.friend.status = "Pending";
     console.log(this.friend);
@@ -46,14 +47,12 @@ export class AddFriendButtonComponent implements OnInit {
 
   checkIfFriendshipStatus(){
     // get the row if it exist.
+    this.user = this.sessionService.getSession('userAccount');
+    this.friend.requester = parseInt(this.user.id);
+    this.friend.decider = parseInt(this.userId);
     console.log(this.friend);
-    this.aurthSerivce.checkFriendRecord(this.friend).subscribe(response => {
-      console.log(response);
-      console.log("good?")
-      
+    this.aurthSerivce.checkFriendRecord(this.friend).subscribe(data => {
+      console.log(data);
     });
-
-  }
-
-  
+  }  
 }

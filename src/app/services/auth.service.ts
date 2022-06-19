@@ -38,10 +38,12 @@ export class AuthService {
     return this.http.post('http://localhost:8080/api/friends/add', newFriend)
   }
 
-  checkFriendRecord(checkFriend: any): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/api/friends/getrecord', checkFriend)
+  checkFriendRecord(data: any): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/api/friends/getrecord', data)
+  }  
+  
+  pendingFriends(data: any): Observable<any>{
+    return this.http.post('http://localhost:8080/api/friends/searchfriendlist', data)
   }
-
-
 
 }
