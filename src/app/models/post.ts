@@ -6,6 +6,8 @@ export class Post {
         public privacy?: boolean,
         public createDate?: string,
         public id?: number,
+        public firstName?: string,
+        public lastName?: string
     ){
 
     }

@@ -92,7 +92,6 @@ export class SessionsService {
    * sets any empty stings to null
    */
   userAccountNormalizer(data: User): User {
-    console.log(data);
     (data.firstName === '' || data.firstName === null)? data.firstName = undefined : "";
     (data.lastName === '' || data.lastName === null)? data.lastName = undefined : "";
     (data.email === '' || data.email === null)? data.email = undefined : "";

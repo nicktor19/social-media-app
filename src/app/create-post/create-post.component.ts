@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { SessionsService } from '../services/sessions.service';
 import { User } from '../models/user';
 import { Post } from '../models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -16,7 +17,7 @@ export class CreatePostComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private sessionServices: SessionsService,
+    private sessionServices: SessionsService
     ) { }
 
   ngOnInit(): void {
@@ -50,7 +51,8 @@ export class CreatePostDialog implements OnInit{
     @Inject(MAT_DIALOG_DATA) public data: any, 
     private _ngZone: NgZone, 
     private authService: AuthService,
-    private sessionServices: SessionsService
+    private sessionServices: SessionsService,
+    private router: Router
     ){
 
   }
@@ -63,10 +65,11 @@ export class CreatePostDialog implements OnInit{
     this.dialogRef.close();
   }
   onSubmitHandler(){
-    this.authService.addPost(this.post).subscribe(response =>{
-      console.log(response);
-      
-    })
+    this.authService.addPost(this.post).subscribe({
+      next: (v) => window.location.reload(),
+      error: (e) => console.log(e)
+    });
+    
   }
 
 }
