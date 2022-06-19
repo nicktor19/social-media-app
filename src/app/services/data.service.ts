@@ -9,4 +9,19 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
 
+  getPostById(id: number): Observable<any>{
+    return this.http.get('http://localhost:8080/api/Posts/'+ id)
+  }
+
+  getAllPost():Observable<any>{
+    return this.http.get('http://localhost:8080/api/Posts');
+  }
+
+  getUserById(id:number):Observable<any>{
+    return this.http.get('http://localhost:8080/api/Users/'+ id)
+  }
+
+  getAllUsers():Observable<any>{
+    return this.http.get('http://localhost:8080/api/Users/')
+  }
 }
