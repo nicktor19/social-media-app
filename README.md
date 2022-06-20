@@ -4,14 +4,14 @@
 In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. Each user, has their own dashboard with which they can navigate through the platform and start their adventure on InstaFace.
 
 ## User can: 
-• Register
+• Register <br />
 • Log in and log out
-• Create a profile and edit it anytime
-• Use the dashboard
-• Utilize the navigation bar
-• Send friend requests
-• Accept pending friend requets
-• View the global feeds, friend feeds, own feeds
+• Create a profile and edit it anytime <br />
+• Use the dashboard <br />
+• Utilize the navigation bar <br />
+• Send friend requests <br />
+• Accept pending friend requets <br />
+• View the global feeds, friend feeds, own feeds <br />
 
 ## InstaFace
 
@@ -42,14 +42,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Technologies used
-• Java 1.8+
-• BootStrap
-• Ajax
-• Angular
-• MySQL
-• Maven
-• HTML/CSS
-• Hibernate
-• JavaScript
+• Java 1.8+ <br />
+• BootStrap <br /> 
+• Ajax <br />
+• Angular <br /> 
+• MySQL <br />
+• Maven <br />
+• HTML/CSS <br />
+• Hibernate <br />
+• JavaScript <br />
 
 
