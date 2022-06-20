@@ -1,3 +1,8 @@
+
+# Project 2 – Social Media Website - InstaFace
+
+Social Media Website (SMW). In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. 
+
 # Instaface
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
