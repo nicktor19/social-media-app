@@ -9,8 +9,8 @@ In this document, all requirements and required technologies pertaining the seco
 • Create a profile and edit it anytime <br />
 • Use the dashboard <br />
 • Utilize the navigation bar <br />
-• Send friend requests <br />
-• Accept pending friend requets <br />
+• Send friends requests <br />
+• Accept pending friend requests <br />
 • View the global feeds, friend feeds, own feeds <br />
 
 ## InstaFace
@@ -51,6 +51,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 • HTML/CSS <br />
 • Hibernate <br />
 • JavaScript <br />
+
+## Project Showcase
+![Alt text][(Image URL)](https://discord.com/channels/@me/984919890412597290/988462428876574790)
 
 ## Contributors
 
