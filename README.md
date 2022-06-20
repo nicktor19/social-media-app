@@ -3,6 +3,16 @@
 
 In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. Each user, has their own dashboard with which they can navigate through the platform and start their adventure on InstaFace.
 
+## User can: 
+• Register 
+• Log in and log out.
+• Create a profile and edit it anytime. 
+• Use the dashboard
+• Utilize the navigation bar
+• Send friend requests.
+• Accept pending friend requets.
+• View the global feeds, friend feeds, own feeds.
+
 ## InstaFace
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
