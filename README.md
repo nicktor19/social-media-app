@@ -4,6 +4,7 @@
 In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. Each user, has their own dashboard with which they can navigate through the platform and start their adventure on InstaFace.
 
 ## User can: 
+
 • Register. <br />
 • Log in and log out. <br />
 • Create a profile and edit it anytime. <br />
@@ -14,7 +15,13 @@ In this document, all requirements and required technologies pertaining the seco
 • View the global feeds, friend feeds, own feeds. <br />
 
 ## Technologies used
-• Java 1.8+ <br />
+
+• TypeScript <br />
+• Java 17 <br />
+• SpringBoost <br />
+• Spring MVC <br />
+• Angular Material <br />
+• JUnit <br />
 • BootStrap <br /> 
 • Ajax <br />
 • Angular <br /> 
@@ -24,8 +31,10 @@ In this document, all requirements and required technologies pertaining the seco
 • Hibernate <br />
 • JavaScript <br />
 
+
 ## Project Showcase
-![Profile][(src\assets\images\Profile1.png)]
+
+![Profile][(\..\..\..\Profile1.png)]
 ![Feeds][(src\assets\images\Feeds1.png)]
 
 ## Contributors
