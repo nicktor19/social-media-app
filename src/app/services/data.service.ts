@@ -24,4 +24,8 @@ export class DataService {
   getAllUsers():Observable<any>{
     return this.http.get('http://localhost:8080/api/Users/')
   }
+
+  getAllPost():Observable<any>{
+    return this.http.get("http://localhost:8080/api/Posts/friends")
+  }
 }

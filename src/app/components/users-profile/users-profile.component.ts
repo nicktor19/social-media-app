@@ -3,6 +3,7 @@ import { User } from '../../models/user'
 import { SessionsService } from 'src/app/services/sessions.service';
 import { AuthService } from 'src/app/services/auth.service';
 import {ActivatedRoute} from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-users-profile',
@@ -10,14 +11,15 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./users-profile.component.css']
 })
 export class UsersProfileComponent implements OnInit {
-
+  feedItems: [] = []
   user: any = User;
   userId: any;
 
   constructor(
     private sessionService: SessionsService,
     private aurthSerivce: AuthService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private dataService: DataService
     ) {
       this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
      }
@@ -27,8 +29,18 @@ export class UsersProfileComponent implements OnInit {
 
     this.aurthSerivce.getUserById(this.userId).subscribe(data => {
       this.user = data;
-      //console.log(data);
     })
+    this.dataService.getPostById(this.userId).subscribe(response => {
+      this.feedItems = response.map((item: any) => {
+        return {
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
+          imgURL: item.imgURL,
+          message: item.message
+        }
+      }).reverse()
+    });
+
   }
 
 }

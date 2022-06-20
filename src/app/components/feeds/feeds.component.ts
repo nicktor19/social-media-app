@@ -16,8 +16,10 @@ export interface DialogData {
 export class FeedsComponent implements OnInit {
   yourFeedItems: any[] = []
   allFeedItems: any[] = []
-  testFeedItems: any[] = []
+  allFriendItems: any[] = []
   filterLoaded!: Promise<boolean>;
+  friendPostsLoaded!: Promise<boolean>;
+  friends: any[] = []
 
   constructor(public dialog: MatDialog, private sessionService: SessionsService, private dataService: DataService) {
 
@@ -56,7 +58,27 @@ export class FeedsComponent implements OnInit {
           })
         }
       })
+    })
 
+    this.dataService.getAllPost().subscribe({
+      next: (posts) =>{
+        posts.forEach((item: any) => {
+            this.dataService.getUserById(item.userId).subscribe({
+              next: (res2) => {
+                this.allFriendItems.push({
+                  firstName: res2.firstName,
+                  lastName: res2.lastName,
+                  imgURL: item.imgURL,
+                  message: item.message,
+                  userId: res2.id,
+                })},
+              complete: () => {
+                this.allFriendItems.reverse();
+                this.friendPostsLoaded = Promise.resolve(true);
+              }
+            })
+        })
+      }
     })
 
   }
