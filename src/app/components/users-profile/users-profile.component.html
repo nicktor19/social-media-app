@@ -1,74 +1,88 @@
 <div class="container">
-<mat-card class="mt-2">
-	<div class="row justify-content-center">
-		<div class="col-lg-3 align-self-center">
-			<img src="{{ user.imgURL }}" alt="" class="img-fluid img-responsive center-block d-block mx-auto" />
+	<mat-card class="mt-2">
+		<div class="row justify-content-center">
+			<div class="col-lg-3 align-self-center">
+				<img
+					src="{{ user.imgURL }}"
+					alt=""
+					class="img-fluid img-responsive center-block d-block mx-auto"
+				/>
+			</div>
+			<div class="col" style="max-width: 440px">
+				<mat-list class="mat-card-content center-block d-block mx-auto">
+					<mat-card-title class="h2-responsive"
+						>{{ user.firstName }} {{ user.lastName }}
+						<app-add-friend-button></app-add-friend-button>
+					</mat-card-title>
+					<mat-card-subtitle>{{ user.description }}</mat-card-subtitle>
+					<dl>
+						<div *ngIf="user.occupation !== null">
+							<dt>Occupation</dt>
+							<dd>{{ user.occupation }}</dd>
+						</div>
+						<div *ngIf="user.city !== null">
+							<dt>City</dt>
+							<dd>{{ user.city }}</dd>
+						</div>
+						<div *ngIf="user.nationality !== null">
+							<dt>Nationality</dt>
+							<dd>{{ user.nationality }}</dd>
+						</div>
+						<div *ngIf="user.hobbies !== null">
+							<dt>Hobbies</dt>
+							<dd>{{ user.hobbies }}</dd>
+						</div>
+						<div
+							*ngIf="
+								!(
+									user.twitter == undefined &&
+									user.linkedin == undefined &&
+									user.facebook == undefined
+								)
+							"
+						>
+							<dt>Contact Me</dt>
+							<dd>
+								<div class="flex-menu">
+									<link
+										rel="stylesheet"
+										href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+									/>
+									<a
+										*ngIf="user.twitter !== null"
+										href="{{ user.twitter }}"
+										target="_blank"
+										class="mr-2"
+										mat-raised-button
+										color="primary"
+										><i class="fa fa-twitter"></i
+									></a>
+									<a
+										*ngIf="user.linkedin !== null"
+										href="{{ user.linkedin }}"
+										target="_blank"
+										mat-raised-button
+										color="primary"
+										class="mr-2"
+										><i class="fa fa-linkedin"></i
+									></a>
+									<a
+										*ngIf="user.facebook !== null"
+										href="{{ user.facebook }}"
+										target="_blank"
+										mat-raised-button
+										color="primary"
+										><i class="fa fa-facebook"></i
+									></a>
+								</div>
+							</dd>
+						</div>
+					</dl>
+				</mat-list>
+			</div>
 		</div>
-		<div class="col"  style='max-width: 440px;'>
-			<mat-list class="mat-card-content center-block d-block mx-auto">
-				<mat-card-title class="h2-responsive">{{ user.firstName }} {{ user.lastName }}
-					<app-add-friend-button></app-add-friend-button>
-                </mat-card-title>
-				<mat-card-subtitle>{{ user.description }}</mat-card-subtitle>
-				<dl>
-					<div *ngIf="user.occupation !== null">
-						<dt>Occupation</dt>
-						<dd>{{ user.occupation }}</dd>
-					</div>
-					<div *ngIf="user.city !== null">
-						<dt>City</dt>
-						<dd>{{ user.city }}</dd>
-					</div>
-					<div *ngIf="user.nationality !== null">
-						<dt>Nationality</dt>
-						<dd>{{ user.nationality }}</dd>
-					</div>
-					<div *ngIf="user.hobbies !== null">
-						<dt>Hobbies</dt>
-						<dd>{{ user.hobbies }}</dd>
-					</div>
-					<div *ngIf="!(user.twitter == undefined && user.linkedin == undefined && user.facebook == undefined)">
-						<dt>Contact Me</dt>
-						<dd>
-							<div class="flex-menu">
-								<link
-									rel="stylesheet"
-									href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-								/>
-								<a
-									*ngIf="user.twitter !== null"
-									href = "{{ user.twitter }}"
-									target = "_blank"
-									class="mr-2"
-									mat-raised-button
-									color="primary"
-									><i class="fa fa-twitter"></i
-								></a>
-								<a
-									*ngIf="user.linkedin !== null"
-									href="{{ user.linkedin}}"
-									target = "_blank"
-									mat-raised-button
-									color="primary"
-									class="mr-2"
-									><i class="fa fa-linkedin"></i
-								></a>
-								<a
-									*ngIf="user.facebook !== null"
-									href="{{ user.facebook }}"
-									target = "_blank"
-									mat-raised-button
-									color="primary"
-									><i class="fa fa-facebook"></i
-								></a>
-							</div>
-						</dd>
-					</div>
-				</dl>
-			</mat-list>
-		</div>
+	</mat-card>
+	<div *ngIf="filterLoaded | async" as feedItems>
+		<app-feed [feedItems]="feedItems"></app-feed>
 	</div>
-</mat-card>
-<app-feed [feedItems]="feedItems"></app-feed>
-
 </div>

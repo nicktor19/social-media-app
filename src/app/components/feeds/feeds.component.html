@@ -1,11 +1,11 @@
 <mat-tab-group class="mt-2 bg-light">
 	<!-- Global feeds -->
-	<mat-tab label="All Feeds" *ngIf="filterLoaded | async">
-        <app-feed [feedItems]="allFeedItems"></app-feed>
+	<mat-tab label="All Feeds" >
+        <app-feed *ngIf="filterLoaded | async" [feedItems]="allFeedItems"></app-feed>
 	</mat-tab>
 	<!-- friend feeds -->
-		<mat-tab label="Friend Feeds" *ngIf="friendPostsLoaded | async">
-            <app-feed [feedItems]="allFriendItems"></app-feed>
+		<mat-tab label="Friend Feeds" >
+            <app-feed *ngIf="friendPostsLoaded | async" [feedItems]="allFriendItems"></app-feed>
 		</mat-tab>
 	<!-- user feeds -->
 	<mat-tab color="primary" label="Your Feeds" >

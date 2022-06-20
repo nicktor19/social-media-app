@@ -34,7 +34,8 @@ export class FeedsComponent implements OnInit {
           firstName: user.firstName,
           lastName: user.lastName,
           imgURL: item.imgURL,
-          message: item.message
+          message: item.message,
+          userId: user.id
         }
       }).reverse()
     });
@@ -50,7 +51,8 @@ export class FeedsComponent implements OnInit {
                 imgURL: item.imgURL,
                 message: item.message,
                 userId: res2.id
-              })},
+              })
+            },
             complete: () => {
               this.allFeedItems.reverse();
               this.filterLoaded = Promise.resolve(true);
@@ -61,23 +63,24 @@ export class FeedsComponent implements OnInit {
     })
 
     this.dataService.getAllPost().subscribe({
-      next: (posts) =>{
+      next: (posts) => {
         posts.forEach((item: any) => {
-            this.dataService.getUserById(item.userId).subscribe({
-              next: (res2) => {
-                this.allFriendItems.push({
-                  firstName: res2.firstName,
-                  lastName: res2.lastName,
-                  imgURL: item.imgURL,
-                  message: item.message,
-                  userId: res2.id,
-                })},
-              complete: () => {
-                this.allFriendItems.reverse();
-                this.friendPostsLoaded = Promise.resolve(true);
-              }
-            })
+          this.dataService.getUserById(item.userId).subscribe({
+            next: (res2) => {
+              this.allFriendItems.push({
+                firstName: res2.firstName,
+                lastName: res2.lastName,
+                imgURL: item.imgURL,
+                message: item.message,
+                userId: res2.id,
+              })
+            }
+          })
         })
+      },
+      complete: () => {
+        this.allFriendItems.reverse();
+        this.friendPostsLoaded = Promise.resolve(true);
       }
     })
 
