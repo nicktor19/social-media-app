@@ -8,7 +8,7 @@ import { SessionsService } from "src/app/services/sessions.service"
 })
 export class LandingComponent implements OnInit {
 
-  checkSession: boolean = false;
+  checkSession: boolean = true;
 
   constructor(
     private cookieService: SessionsService

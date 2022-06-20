@@ -17,21 +17,14 @@ export class SessionsService {
   ) { }
 
   /**
-   * if user is logged in this will redirect the user to dashboard (remind Nick to remove it from profile thank you.)
+   * if user is logged in this will redirect the user to dashboard.
    */
   sessionActive() {
     this.checkSession = this.checkLoggedInActive();
+    console.log(this.checkSession = this.checkLoggedInActive())
     if (this.checkSession === true) {
       this.loggedinDirector();
-    }
-  }
-
-  /**
-   * if user is logged out this will redirect the user to login.
-   */
-  sessionDeactive() {
-    this.checkSession = this.checkLoggedInActive();
-    if (this.checkSession === false) {
+    } else if (this.checkSession === false) {
       this.loggedOutDirector();
     }
   }
@@ -55,8 +48,9 @@ export class SessionsService {
    * if user logged out redirect to homepage.
    */
   loggedOutDirector() {
-    if (this.checkLoggedInActive() === false)
-      this.router.navigate(["/home"]);
+    if (this.checkLoggedInActive() === false){
+      this.router.navigateByUrl("/home");
+    }
   }
 
   /**
@@ -75,8 +69,6 @@ export class SessionsService {
     if (cookieName === "userAccount"){
       this.cookieService.set(cookieName, JSON.stringify(data));
       this.cookieService.set("loggedin", "true");
-    }else {
-      this.cookieService.set(cookieName, JSON.stringify(data));
     }
     this.reloadCurrentPage();
     //this.router.navigate(['/dashboard']);
@@ -147,7 +139,7 @@ export class SessionsService {
   logout() {
     this.cookieService.deleteAll();
     //this.router.navigate([""]);
-    //this.reloadCurrentPage()
+    this.reloadCurrentPage()
   }
 
   reloadCurrentPage() {

@@ -17,8 +17,6 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private sessionService: SessionsService,
-    private cookieService: CookieService,
-    private router: Router
     ) { }
 
   ngOnInit(): void { 

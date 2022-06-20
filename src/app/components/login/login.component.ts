@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       if (response !== null) {
         this.cookieSession.createSession("userAccount", response)
         this.user = this.cookieSession.getSession("userAccount");
-        console.log(this.user.email);
       } else {
         this.display = true;
       }
