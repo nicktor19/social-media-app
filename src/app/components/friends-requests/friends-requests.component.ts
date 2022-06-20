@@ -14,6 +14,7 @@ import { ThisReceiver } from '@angular/compiler';
 export class FriendsRequestsComponent implements OnInit {
 
   currentUser = this.sessionService.getSession("userAccount");
+  getFriend = new Friend();
   storePendingFriends: any[] = [];
   populatedFriendsRequester: any[] = []; // user can't approve
   populatedFriendsDecider: any[] = []; // user can approve these
@@ -23,13 +24,13 @@ export class FriendsRequestsComponent implements OnInit {
     private dataService: DataService,
     private authService: AuthService
   ) {
-
-
+    this.getFriend.requester = this.currentUser.id;
+    this.getFriend.status = "Pending";
   }
 
   ngOnInit(): void {
     //get all friendsList pending
-    this.authService.pendingFriends(this.currentUser).subscribe(data => {
+    this.authService.searchFriends(this.getFriend).subscribe(data => {
       this.storePendingFriends = data;
       //get all friends users
       this.storePendingFriends.forEach(data => {
