@@ -1,7 +1,7 @@
 
 # Project 2 – Social Media Website - InstaFace
 
-Social Media Website (SMW). In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. Each user, has their own dashboard with which they can navigate through the platform and start their adventure on InstaFace.
+In this document, all requirements and required technologies pertaining the second full stack project of the training will be presented. All users on the website can login and submit requests to post their images, view images, and share their lives with their friends on the platform. Each user, has their own dashboard with which they can navigate through the platform and start their adventure on InstaFace.
 
 ## InstaFace
 
