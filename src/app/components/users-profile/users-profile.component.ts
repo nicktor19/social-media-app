@@ -28,25 +28,31 @@ export class UsersProfileComponent implements OnInit {
   ngOnInit(): void {
     this.sessionService.sessionDeactive();
 
-    this.aurthSerivce.getUserById(this.userId).subscribe(data => {
-      this.user = data;
-    })
-    this.dataService.getPostById(this.userId).subscribe({
-      next: (response) =>{
-        response.forEach((item: any) => {
-          this.feedItems.push({
-            firstName: this.user.firstName,
-            lastName: this.user.lastName,
-            imgURL: item.imgURL,
-            message: item.message,
-            userId: this.user.id
-          })
-        })},
-        complete: () =>{
-          this.filterLoaded = Promise.resolve(true);
-        }
-    });
+    this.aurthSerivce.getUserById(this.userId).subscribe({
+      next: data => {
+        this.user = data
+      },
+      complete: () => {
+        this.dataService.getPostById(this.userId).subscribe({
+          next: (response) => {
+            response.forEach((item: any) => {
+              this.feedItems.push({
+                firstName: this.user.firstName,
+                lastName: this.user.lastName,
+                imgURL: item.imgURL,
+                message: item.message,
+                userId: this.user.id
+              })
+            })
+          },
+          complete: () => {
+            this.filterLoaded = Promise.resolve(true);
+          }
+        });
 
+
+      }
+    })
   }
 
 }

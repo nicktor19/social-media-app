@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Friend } from 'src/app/models/friends';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { SessionsService } from 'src/app/services/sessions.service';
 
@@ -14,6 +16,8 @@ export interface DialogData {
   styleUrls: ['./feeds.component.css']
 })
 export class FeedsComponent implements OnInit {
+  currentUser = this.sessionService.getSession("userAccount");
+  getFriend = new Friend();
   yourFeedItems: any[] = []
   allFeedItems: any[] = []
   allFriendItems: any[] = []
@@ -21,28 +25,31 @@ export class FeedsComponent implements OnInit {
   friendPostsLoaded!: Promise<boolean>;
   friends: any[] = []
 
-  constructor(public dialog: MatDialog, private sessionService: SessionsService, private dataService: DataService) {
+  constructor(public dialog: MatDialog, private sessionService: SessionsService, private dataService: DataService, private authService: AuthService) {
 
+    this.getFriend.requester = this.currentUser.id;
+    console.log(this.getFriend.requester);
+    this.getFriend.status = "Approved";
   }
 
   ngOnInit(): void {
-    let user = this.sessionService.getSession("userAccount")
+    this.currentUser = this.sessionService.getSession("userAccount")
 
-    this.dataService.getPostById(user.id).subscribe(response => {
+    this.dataService.getPostById(this.currentUser.id).subscribe(response => {
       this.yourFeedItems = response.map((item: any) => {
         return {
-          firstName: user.firstName,
-          lastName: user.lastName,
+          firstName: this.currentUser.firstName,
+          lastName: this.currentUser.lastName,
           imgURL: item.imgURL,
           message: item.message,
-          userId: user.id
+          userId: this.currentUser.id
         }
       }).reverse()
     });
 
     this.dataService.getAllPublicPost().subscribe(res => {
       res.forEach((item: any) => {
-        if (item.userId != user.id) {
+        if (item.userId != this.currentUser.id) {
           this.dataService.getUserById(item.userId).subscribe({
             next: (res2) => {
               this.allFeedItems.push({
@@ -64,18 +71,34 @@ export class FeedsComponent implements OnInit {
 
     this.dataService.getAllPost().subscribe({
       next: (posts) => {
-        posts.forEach((item: any) => {
-          this.dataService.getUserById(item.userId).subscribe({
-            next: (res2) => {
-              this.allFriendItems.push({
-                firstName: res2.firstName,
-                lastName: res2.lastName,
-                imgURL: item.imgURL,
-                message: item.message,
-                userId: res2.id,
-              })
-            }
-          })
+        this.authService.searchFriends(this.getFriend).subscribe({
+          next: (data) => {
+            data.forEach((friendData: { requester: any; decider: any; }) => {
+              if (this.currentUser.id != friendData.requester) {
+                this.friends.push(friendData.requester)
+              } else if (this.currentUser.id != friendData.decider) {
+                this.friends.push(friendData.decider)
+              }
+
+            })
+          },
+          complete: () => {
+            posts.forEach((item: any) => {
+              if (this.friends.includes(item.userId)) {
+                this.dataService.getUserById(item.userId).subscribe({
+                  next: (res2) => {
+                    this.allFriendItems.push({
+                      firstName: res2.firstName,
+                      lastName: res2.lastName,
+                      imgURL: item.imgURL,
+                      message: item.message,
+                      userId: res2.id,
+                    })
+                  }
+                })
+              }
+            })
+          }
         })
       },
       complete: () => {
