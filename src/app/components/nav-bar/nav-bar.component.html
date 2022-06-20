@@ -9,7 +9,7 @@
 			class="mr-2"
 			mat-raised-button
 			color="primary"
-			routerLink=""
+			routerLink="home"
 			routerLinkActive="mat-accent"
 			[routerLinkActiveOptions]="{ exact: true }"
 			*ngIf="!logger"
@@ -36,7 +36,7 @@
 			<mat-divider></mat-divider>
 			<a mat-menu-item routerLink="profile" class="px-2">Profile</a>
 			<mat-divider></mat-divider>
-			<a mat-menu-item href="/logout" (click)="onClickLogout()" class="px-2">Logout</a>
+			<a mat-menu-item href="#" (click)="onClickLogout()" class="px-2">Logout</a>
 		</mat-menu>
 	</div>
 </mat-toolbar>
