@@ -10,7 +10,7 @@ import { SessionsService } from 'src/app/services/sessions.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  feedItems: [] = [];
+  feedItems: any[] = [];
 
   constructor(private dataService: DataService, private sessionService: SessionsService) { }
 
@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
           lastName: user.lastName,
           imgURL: item.imgURL,
           message: item.message,
-          userId: user.userId
+          userId: user.id
         }
       }).reverse()
     });

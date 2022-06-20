@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user'
 import { SessionsService } from 'src/app/services/sessions.service';
 import { AuthService } from 'src/app/services/auth.service';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-users-profile',
@@ -10,25 +11,42 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./users-profile.component.css']
 })
 export class UsersProfileComponent implements OnInit {
-
+  feedItems: any[] = []
   user: any = User;
   userId: any;
+  filterLoaded!: Promise<boolean>;
 
   constructor(
     private sessionService: SessionsService,
     private aurthSerivce: AuthService,
-    private activatedRoute: ActivatedRoute
-    ) {
-      this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
-     }
+    private activatedRoute: ActivatedRoute,
+    private dataService: DataService
+  ) {
+    this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
+  }
 
   ngOnInit(): void {
     this.sessionService.sessionDeactive();
 
     this.aurthSerivce.getUserById(this.userId).subscribe(data => {
       this.user = data;
-      //console.log(data);
     })
+    this.dataService.getPostById(this.userId).subscribe({
+      next: (response) =>{
+        response.forEach((item: any) => {
+          this.feedItems.push({
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            imgURL: item.imgURL,
+            message: item.message,
+            userId: this.user.id
+          })
+        })},
+        complete: () =>{
+          this.filterLoaded = Promise.resolve(true);
+        }
+    });
+
   }
 
 }

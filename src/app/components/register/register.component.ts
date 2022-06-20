@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitHandler(){
-
+    this.userModel.imgURL = "https://i1.lensdump.com/i/t7Evea.png";
      if (this.userModel.firstName !== undefined
       || this.userModel.lastName !== undefined 
       || this.userModel.email !== undefined 

@@ -11,6 +11,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
 import { UsersProfileComponent } from './components/users-profile/users-profile.component';
 import { AddFriendButtonComponent } from './components/add-friend-button/add-friend-button.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'test1', component: CreatePostComponent }, //delete
   { path: 'friends', component: FriendsListComponent }, //delete
   { path: 'feeds', component: FeedsComponent }, //delete  
-  { path: 'button', component: AddFriendButtonComponent } //delete  
+  { path: 'button', component: AddFriendButtonComponent },//delete  
+  { path: '**', component: ErrorComponent} 
 ];
 
 @NgModule({
