@@ -53,7 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 • JavaScript <br />
 
 ## Project Showcase
-![Alt text][(Image URL)](https://discord.com/channels/@me/984919890412597290/988462428876574790)
+![Alt text][(https://discord.com/channels/@me/984919890412597290/988462428876574790)]
 
 ## Contributors
 
