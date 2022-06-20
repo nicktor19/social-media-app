@@ -15,7 +15,6 @@ export class FriendsListComponent implements OnInit {
   getFriend = new Friend();
   storeApprovedFriends: any[] = [];
   populatedApprovedFriends: any[] = []; // user that were aprpoved
-
   showFiller = false;
 
   constructor(
@@ -23,7 +22,7 @@ export class FriendsListComponent implements OnInit {
     private dataService: DataService,
     private authService: AuthService
 
-  ) { 
+  ) {
     this.getFriend.requester = this.currentUser.id;
     console.log(this.getFriend.requester);
     this.getFriend.status = "Approved";
@@ -32,19 +31,16 @@ export class FriendsListComponent implements OnInit {
   ngOnInit(): void {
     this.authService.searchFriends(this.getFriend).subscribe(data => {
       this.storeApprovedFriends = data;
-      console.log(data);
       //get all friends users
       this.storeApprovedFriends.forEach(data => {
-        //requester shouldnt be able to approve just see it as pending
-        if (this.currentUser.id != data.requester){ 
+        //getting the other friend.
+        if (this.currentUser.id != data.requester) {
           this.dataService.getUserById(data.requester).subscribe(data => {
             this.populatedApprovedFriends.push(data);
-            console.log(data)
           });
-        } else if (this.currentUser.id != data.decider){
+        } else if (this.currentUser.id != data.decider) {
           this.dataService.getUserById(data.decider).subscribe(data => {
             this.populatedApprovedFriends.push(data);
-            console.log(data)
           });
         }
       });
