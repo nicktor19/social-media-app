@@ -34,8 +34,9 @@ In this document, all requirements and required technologies pertaining the seco
 
 ## Project Showcase
 
-![Profile][(\..\..\..\Profile1.png)]
-![Feeds][(src\assets\images\Feeds1.png)]
+![Profile](/src/assets/images/Profile1.png)
+![Feeds](src/assets/images/Feeds1.png)
+[More...](https://github.com/nicktor19/social-media-app/tree/master/src/assets/images)
 
 ## Contributors
 
