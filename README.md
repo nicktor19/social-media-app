@@ -52,4 +52,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 • Hibernate <br />
 • JavaScript <br />
 
+## Contributors
 
+Alejandro Zubillaga
+Jeffrey Saelee
+Nicholas Torres
