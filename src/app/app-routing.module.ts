@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { FeedsComponent } from './components/feeds/feeds.component';
-import { FriendsListComponent } from './components/friends-list/friends-list.component';
-import { FriendsRequestsComponent } from './components/friends-requests/friends-requests.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CreatePostComponent, CreatePostDialog } from './create-post/create-post.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
 import { UsersProfileComponent } from './components/users-profile/users-profile.component';
-import { AddFriendButtonComponent } from './components/add-friend-button/add-friend-button.component';
 import { ErrorComponent } from './components/error/error.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,6 +17,7 @@ const routes: Routes = [
   { path: 'profile/:userId', component: UsersProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: '**', component: ErrorComponent} 
 ];
 

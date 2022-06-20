@@ -28,6 +28,7 @@ import { UsersProfileComponent } from './components/users-profile/users-profile.
 import { AddFriendButtonComponent } from './components/add-friend-button/add-friend-button.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { ErrorComponent } from './components/error/error.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ErrorComponent } from './components/error/error.component';
     UsersProfileComponent,
     AddFriendButtonComponent,
     FeedComponent,
-    ErrorComponent  
+    ErrorComponent,
+    LogoutComponent  
   ],
   imports: [
     BrowserModule,
