@@ -1,18 +1,41 @@
-<mat-card class="mat-card">
+<mat-card class="mat-card" *ngIf="populatedFriendsDecider.length > 0 || populatedFriendsRequester.length > 0">
     <mat-card-title color="primary"><mat-icon class="h-100" color="primary">people</mat-icon>Friend Requests</mat-card-title>
     <mat-divider></mat-divider>
     <mat-list>
-        <mat-list-item >
+        <!-- decide here -->
+        <mat-list-item title="Please Decide" *ngFor="let user of populatedFriendsDecider">
             <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                <mat-icon></mat-icon>
+                <mat-icon>{{ user.firstName[0] | uppercase}} {{ user.lastName[0] | uppercase}}</mat-icon>
             </button> 
-            <a class="ml-2 mt-1 mb-1" href="#"></a>
-            <button class="mat-icon1" mat-icon-button >
+            <a class="ml-2 mt-1 mb-1" href="/profile/{{ user.id }}">{{ user.firstName }} {{ user.lastName }}</a>
+            <div *ngFor="let friends of storePendingFriends">
+            <button class="mat-icon1" 
+                mat-icon-button title="Approve" 
+                *ngIf="friends.requester == user.id" 
+                (click)="onClickAcceptFriend(friends.friendsId)"
+            >
                 <mat-icon color="pink">check_circle</mat-icon>
             </button>
-            <button class="mat-icon2" mat-icon-button >
-                <mat-icon>remove_circle</mat-icon>
+            <button class="mat-icon2" 
+            mat-icon-button title="Deny" 
+            *ngIf="friends.requester == user.id"
+            (click)="onClickRejectFriend(friends.friendsId)"
+            >
+                <mat-icon >remove_circle</mat-icon>
             </button>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    <mat-list>
+        <!-- waiting for -->
+        <mat-list-item *ngFor="let userr of populatedFriendsRequester" title="Waiting for Approval">
+            <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                <mat-icon>{{ userr.firstName[0] | uppercase}} {{ userr.lastName[0] | uppercase}}</mat-icon>
+            </button> 
+            <a class="ml-2 mt-1 mb-1" href="/profile/{{ userr.id }}">{{ userr.firstName }} {{userr.lastName }}</a>
+            
+                <mat-icon title="Waiting for Approval" alt="Waiting for Approval" color="primary">timelapse</mat-icon>
+            
         </mat-list-item>
     </mat-list>
 </mat-card>

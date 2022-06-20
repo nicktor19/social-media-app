@@ -43,7 +43,11 @@ export class AuthService {
   }  
   
   pendingFriends(data: any): Observable<any>{
-    return this.http.post('http://localhost:8080/api/friends/searchfriendlist', data)
+    return this.http.post<any>('http://localhost:8080/api/friends/searchfriendlist', data)
+  }
+
+  updateFriends(data: any): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/api/friends/update', data)
   }
 
 }

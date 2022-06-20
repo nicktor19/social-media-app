@@ -1,6 +1,6 @@
 export class Friend {
     constructor(
-        public id?: number,
+        public friendsId?: number,
         public requester?: any,
         public decider?: any,
         public status?: string,
