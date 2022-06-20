@@ -27,6 +27,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UsersProfileComponent } from './components/users-profile/users-profile.component';
 import { AddFriendButtonComponent } from './components/add-friend-button/add-friend-button.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FeedComponent } from './components/feed/feed.component';
     DashboardComponent,
     UsersProfileComponent,
     AddFriendButtonComponent,
-    FeedComponent  
+    FeedComponent,
+    ErrorComponent  
   ],
   imports: [
     BrowserModule,
