@@ -14,18 +14,13 @@ import { AddFriendButtonComponent } from './components/add-friend-button/add-fri
 import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterpageComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'profile/:userId', component: UsersProfileComponent }, //todo
+  { path: 'profile/:userId', component: UsersProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'friendsRequest', component: FriendsRequestsComponent }, // delete
-  { path: 'test', component: EditProfileComponent }, //delete
-  { path: 'test1', component: CreatePostComponent }, //delete
-  { path: 'friends', component: FriendsListComponent }, //delete
-  { path: 'feeds', component: FeedsComponent }, //delete  
-  { path: 'button', component: AddFriendButtonComponent },//delete  
   { path: '**', component: ErrorComponent} 
 ];
 

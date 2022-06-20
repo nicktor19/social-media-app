@@ -21,12 +21,14 @@
 	</div>
 
 	<div class="justify-content-end" *ngIf="logger">
+		<div class="float-left pr-3" color="accent">Hello, {{ user.firstName }} {{ user.lastName }}</div>
 		<button
 			class="justify-content-end"
 			mat-raised-button
 			color="primary"
 			[matMenuTriggerFor]="menu"
 		>
+		
 			<mat-icon>menu</mat-icon>
 		</button>
 		<mat-menu #menu="matMenu">
@@ -34,7 +36,7 @@
 			<mat-divider></mat-divider>
 			<a mat-menu-item routerLink="profile" class="px-2">Profile</a>
 			<mat-divider></mat-divider>
-			<a mat-menu-item (click)="onClickLogout()" class="px-2">Logout</a>
+			<a mat-menu-item href="/home" (click)="onClickLogout()" class="px-2">Logout</a>
 		</mat-menu>
 	</div>
 </mat-toolbar>

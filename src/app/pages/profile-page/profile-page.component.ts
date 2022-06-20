@@ -12,10 +12,14 @@ import { SessionsService } from 'src/app/services/sessions.service';
 export class ProfilePageComponent implements OnInit {
   feedItems: any[] = [];
 
-  constructor(private dataService: DataService, private sessionService: SessionsService) { }
+  constructor(private dataService: DataService, private sessionService: SessionsService) {
+
+    this.sessionService.loggedOutDirector();
+
+   }
 
   ngOnInit(): void {
-    this.sessionService.loggedOutDirector(); //if you aren't logged in
+
     let user = this.sessionService.getSession("userAccount")
     
     this.dataService.getPostById(user.id).subscribe( response =>{

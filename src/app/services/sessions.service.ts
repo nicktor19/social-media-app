@@ -1,7 +1,8 @@
-import { Injectable, resolveForwardRef } from '@angular/core';
+import { inject, Injectable, resolveForwardRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from "@angular/router";
 import { User } from '../models/user';
+import { waitForAsync } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +56,7 @@ export class SessionsService {
    */
   loggedOutDirector() {
     if (this.checkLoggedInActive() === false)
-      this.router.navigateByUrl("");
+      this.router.navigate(["/home"]);
   }
 
   /**
@@ -93,20 +94,34 @@ export class SessionsService {
    */
   userAccountNormalizer(data: User): User {
     //console.log(data);
-    (data.firstName === '' || data.firstName === null)? data.firstName = undefined : "";
-    (data.lastName === '' || data.lastName === null)? data.lastName = undefined : "";
-    (data.email === '' || data.email === null)? data.email = undefined : "";
-    (data.password === '' || data.password === null)? data.password = undefined : "";
-    (data.description === '' || data.description === null)? data.description = undefined : "";
-    (data.occupation === '' || data.occupation === null)? data.occupation = undefined : "";
-    (data.city === '' || data.city === null)? data.city = undefined : "";
-    (data.nationality === '' || data.nationality === null)? data.nationality = undefined : "";
-    (data.hobbies === '' || data.hobbies === null)? data.hobbies = undefined : "";
-    (data.twitter === '' || data.twitter === null)? data.twitter = undefined : "";
-    (data.linkedin === '' || data.linkedin === null)? data.linkedin = undefined : "";
-    (data.facebook === '' || data.facebook === null)? data.facebook = undefined : "";
-    (data.imgURL === '' || data.imgURL === null)? data.imgURL = undefined : "";
-    (data.id === null)? data.id = undefined : "";
+    if (data.firstName === '' || data.firstName === null)
+      data.firstName = undefined;
+    if(data.lastName === '' || data.lastName === null)
+      data.lastName = undefined;
+    if(data.email === '' || data.email === null)
+      data.email = undefined;
+    if(data.password === '' || data.password === null)
+      data.password = undefined;
+    if(data.description === '' || data.description === null)
+     data.description = undefined;
+    if(data.occupation === '' || data.occupation === null)
+     data.occupation = undefined;
+    if(data.city === '' || data.city === null)
+     data.city = undefined;
+    if(data.nationality === '' || data.nationality === null)
+      data.nationality = undefined;
+    if(data.hobbies === '' || data.hobbies === null)
+      data.hobbies = undefined;
+    if(data.twitter === '' || data.twitter === null)
+      data.twitter = undefined;
+    if(data.linkedin === '' || data.linkedin === null)
+      data.linkedin = undefined;
+    if(data.facebook === '' || data.facebook === null)
+      data.facebook = undefined;
+    if(data.imgURL === '' || data.imgURL === null)
+     data.imgURL = undefined;
+    if(data.id === null)
+      data.id = undefined;
     return data;
   }
 
@@ -131,13 +146,12 @@ export class SessionsService {
    */
   logout() {
     this.cookieService.deleteAll();
-    this.router.navigateByUrl("");
-    this.reloadCurrentPage();
+    //this.router.navigate([""]);
+    //this.reloadCurrentPage()
   }
 
   reloadCurrentPage() {
     window.location.reload();
    }
-
 }
 

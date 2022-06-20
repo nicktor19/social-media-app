@@ -22,12 +22,12 @@ export class UsersProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private dataService: DataService
   ) {
+    
     this.userId = this.activatedRoute.snapshot.paramMap.get('userId');
   }
 
   ngOnInit(): void {
-    this.sessionService.sessionDeactive();
-
+    this.sessionService.loggedOutDirector();
     this.aurthSerivce.getUserById(this.userId).subscribe({
       next: data => {
         this.user = data
@@ -49,8 +49,6 @@ export class UsersProfileComponent implements OnInit {
             this.filterLoaded = Promise.resolve(true);
           }
         });
-
-
       }
     })
   }

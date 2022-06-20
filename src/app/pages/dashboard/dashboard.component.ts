@@ -13,5 +13,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.sessionService.loggedOutDirector(); //if you aren't logged in
   }
-
 }

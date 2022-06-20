@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionsService } from '../../services/sessions.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+import { HttpBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,25 +11,30 @@ import { SessionsService } from '../../services/sessions.service';
 })
 export class NavBarComponent implements OnInit {
   
+  user: any;
   logger: boolean = false;
-  call = this.test();
+  call = this.checkLogger();
 
   constructor(
-    private sessionService: SessionsService
+    private sessionService: SessionsService,
+    private cookieService: CookieService,
+    private router: Router
     ) { }
 
   ngOnInit(): void { 
-    this.test() 
+    this.checkLogger() 
   }
 
   onClickLogout() {
-    this.sessionService.logout();
+    this.sessionService.logout();   
   }
 
-  test() {
+  checkLogger() {
     if (this.sessionService.checkLoggedInActive())
+    {
+      this.user = this.sessionService.getSession("userAccount");
       this.logger = true;
-    else
+    }else
       this.logger = false
   }
 }
