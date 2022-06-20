@@ -27,7 +27,7 @@ export class UsersProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionService.loggedOutDirector();
+    
     this.aurthSerivce.getUserById(this.userId).subscribe({
       next: data => {
         this.user = data

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.cookieService.sessionActive(); //checking if user is logged in
+    
   }
 
   onSubmitHandler(){

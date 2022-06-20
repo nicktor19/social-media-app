@@ -10,7 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterpageComponent },
   { path: 'profile', component: ProfilePageComponent },
