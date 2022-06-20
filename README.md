@@ -5,7 +5,7 @@ In this document, all requirements and required technologies pertaining the seco
 
 ## User can: 
 • Register <br />
-• Log in and log out
+• Log in and log out <br />
 • Create a profile and edit it anytime <br />
 • Use the dashboard <br />
 • Utilize the navigation bar <br />
