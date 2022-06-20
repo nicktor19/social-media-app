@@ -5,7 +5,7 @@
         <!-- decide here -->
         <mat-list-item title="Please Decide" *ngFor="let user of populatedFriendsDecider">
             <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                <mat-icon>{{ user.firstName[0] | uppercase}} {{ user.lastName[0] | uppercase}}</mat-icon>
+                <mat-icon class="mat-typography mat-h2">{{ user.firstName[0] | uppercase}}{{ user.lastName[0] | uppercase}}</mat-icon>
             </button> 
             <a class="ml-2 mt-1 mb-1" href="/profile/{{ user.id }}">{{ user.firstName }} {{ user.lastName }}</a>
             <div *ngFor="let friends of storePendingFriends">
@@ -30,7 +30,7 @@
         <!-- waiting for -->
         <mat-list-item *ngFor="let userr of populatedFriendsRequester" title="Waiting for Approval">
             <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                <mat-icon>{{ userr.firstName[0] | uppercase}} {{ userr.lastName[0] | uppercase}}</mat-icon>
+                <mat-icon class="mat-typography mat-h2">{{ userr.firstName[0] | uppercase}}{{ userr.lastName[0] | uppercase}}</mat-icon>
             </button> 
             <a class="ml-2 mt-1 mb-1" href="/profile/{{ userr.id }}">{{ userr.firstName }} {{userr.lastName }}</a>
             

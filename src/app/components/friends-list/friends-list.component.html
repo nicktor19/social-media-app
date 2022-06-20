@@ -8,7 +8,7 @@
     <mat-list class="flex-menu" *ngIf="(populatedApprovedFriends.length !== 0)">
         <mat-list-item *ngFor="let friend of populatedApprovedFriends">
             <button class="friends-mini-fab"  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-                <mat-icon>{{ friend.firstName[0] | uppercase }}</mat-icon>
+                <mat-icon class="mat-typography mat-h2">{{ friend.firstName[0] | uppercase }}{{ friend.lastName[0] | uppercase }}</mat-icon>
             </button>
             <a class="ml-2 mt-1 mb-1" href="profile/{{ friend.id }}">{{ friend.firstName }} {{ friend.lastName }}</a>
         </mat-list-item>
