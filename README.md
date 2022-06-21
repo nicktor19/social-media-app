@@ -45,3 +45,6 @@ In this document, all requirements and required technologies pertaining the seco
 - Alejandro Zubillaga
 - Jeffrey Saelee
 - Nicholas Torres
+
+## Kanban
+https://github.com/nicktor19/social-media-app/projects/1
