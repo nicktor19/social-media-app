@@ -17,7 +17,13 @@ export class LogoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.sessionService.logout()
+    if (!localStorage.getItem('userAccount')) { 
+      localStorage.setItem('userAccount', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('userAccount') 
+    }
     this.cookieService.deleteAll();
   }
-
 }

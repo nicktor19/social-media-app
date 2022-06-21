@@ -139,7 +139,6 @@ export class SessionsService {
   logout() {
     this.cookieService.deleteAll();
     this.router.navigateByUrl("/home");
-    this.reloadCurrentPage()
   }
 
   reloadCurrentPage() {
