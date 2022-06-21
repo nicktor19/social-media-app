@@ -11,26 +11,26 @@
 			<div class="col" style="max-width: 440px">
 				<mat-list class="mat-card-content center-block d-block mx-auto">
 					<mat-card-title class="h2-responsive"
-						>{{ user.firstName }} {{ user.lastName }}
+						>{{ user.firstName | titlecase }} {{ user.lastName | titlecase}}
 						<app-add-friend-button></app-add-friend-button>
 					</mat-card-title>
 					<mat-card-subtitle>{{ user.description }}</mat-card-subtitle>
 					<dl>
 						<div *ngIf="user.occupation !== null">
 							<dt>Occupation</dt>
-							<dd>{{ user.occupation }}</dd>
+							<dd>{{ user.occupation | titlecase}}</dd>
 						</div>
 						<div *ngIf="user.city !== null">
 							<dt>City</dt>
-							<dd>{{ user.city }}</dd>
+							<dd>{{ user.city | titlecase}}</dd>
 						</div>
 						<div *ngIf="user.nationality !== null">
 							<dt>Nationality</dt>
-							<dd>{{ user.nationality }}</dd>
+							<dd>{{ user.nationality | titlecase}}</dd>
 						</div>
 						<div *ngIf="user.hobbies !== null">
 							<dt>Hobbies</dt>
-							<dd>{{ user.hobbies }}</dd>
+							<dd>{{ user.hobbies | titlecase}}</dd>
 						</div>
 						<div
 							*ngIf="

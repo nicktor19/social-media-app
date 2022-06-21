@@ -12,8 +12,10 @@ import { User } from 'src/app/models/user';
 })
 export class AddFriendButtonComponent implements OnInit {
 
-  statusText = "";
+  statusText = "AddFriend";
+  color = "Primary";
   display = true;
+  buttonIcon = "person_add";
   user: any = User;
   friend: Friend = new Friend();
   userId: any;
@@ -53,6 +55,18 @@ export class AddFriendButtonComponent implements OnInit {
     console.log(this.friend);
     this.aurthSerivce.checkFriendRecord(this.friend).subscribe(data => {
       console.log(data);
+      if (data.status === "Pending"){
+        this.buttonIcon = "how_to_reg"
+        this.statusText = " Pending";
+      }
+      if (data.status === "Approved"){
+        this.buttonIcon = "group"
+        this.statusText = " Friends";
+      }
+      if (data.status === "Denied"){
+        this.buttonIcon = "person_add"
+        this.statusText = "";
+      }
     });
   }
 }
