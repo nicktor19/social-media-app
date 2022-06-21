@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'error', component: ErrorComponent},
   { path: '**', component: ErrorComponent} 
 ];
 

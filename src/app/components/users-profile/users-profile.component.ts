@@ -12,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class UsersProfileComponent implements OnInit {
   feedItems: any[] = []
-  user: any = User;
+  user: any = new User();
   userId: any;
   filterLoaded!: Promise<boolean>;
 
